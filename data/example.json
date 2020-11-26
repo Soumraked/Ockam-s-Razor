@@ -1,0 +1,61 @@
+{
+  "historia":{
+    "1":{
+      "personaje":"Pepe",
+      "imagen":"assets/personajes/personaje1.jpeg",
+      "dialogo":"¿A qué hora vas por el pan?",
+      "izquierda":{
+        "dialogo": "A las 10",
+        "salud":"+10",
+        "dinero":"-15",
+        "reputacion":"0",
+        "santidad":"0"
+      },
+      "derecha":{
+        "dialogo": "No como pan",
+        "salud":"-10",
+        "dinero":"+15",
+        "reputacion":"0",
+        "santidad":"0"
+      }
+    },
+    "2":{
+      "personaje":"Pepe",
+      "imagen":"assets/personajes/personaje1.jpeg",
+      "dialogo":"¿Tas bien mano?",
+      "izquierda":{
+        "dialogo": "Si",
+        "salud":"+10",
+        "dinero":"0",
+        "reputacion":"0",
+        "santidad":"+10"
+      },
+      "derecha":{
+        "dialogo": "No",
+        "salud":"-10",
+        "dinero":"0",
+        "reputacion":"0",
+        "santidad":"+20"
+      }
+    },
+    "3":{
+      "personaje":"Pepe",
+      "imagen":"assets/personajes/personaje1.jpeg",
+      "dialogo":"¿Bob esponja o patricio?",
+      "izquierda":{
+        "dialogo": "Bob esponja",
+        "salud":"+10",
+        "dinero":"+10",
+        "reputacion":"-10",
+        "santidad":"-10"
+      },
+      "derecha":{
+        "dialogo": "Patricio",
+        "salud":"-10",
+        "dinero":"-10",
+        "reputacion":"+10",
+        "santidad":"+10"
+      }
+    }
+  }
+}

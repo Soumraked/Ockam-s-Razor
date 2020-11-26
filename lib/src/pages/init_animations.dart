@@ -20,14 +20,23 @@ class _InitAnimationsState extends State<InitAnimations> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: Colors.black,
+          // color: Colors.white,
+          decoration: new BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Colors.yellow, Colors.orange, Colors.red],
+                  stops: [0.5, 0.5, 0.8],
+                  begin: FractionalOffset.topCenter,
+                  end: FractionalOffset.bottomCenter)),
           child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image(
-                  image: AssetImage('assets/loading.gif'),
+                  image: AssetImage('assets/loading2.gif'),
                   fit: BoxFit.cover,
+                ),
+                Divider(
+                  height: 100,
                 ),
                 Text(
                   'Cargando...',

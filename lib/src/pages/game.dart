@@ -5,6 +5,8 @@ import 'package:ockams_razor/src/pages/menu.dart';
 
 import 'package:ockams_razor/src/utils/utils.dart';
 
+import 'package:ockams_razor/src/providers/dialogs.dart';
+
 class Game extends StatefulWidget {
   @override
   _GameState createState() => _GameState();
@@ -13,10 +15,14 @@ class Game extends StatefulWidget {
 class _GameState extends State<Game> {
   List<String> _images = new List();
   int _uiltimoItem = 0;
-  int _cardNum = 10;
+  int _cardNum = 3;
   CardController _controllerCard = new CardController();
   String _direction = 'None';
   int _currentCard = 0;
+  int _salud = 99;
+  int _reputacion = 99;
+  int _dinero = 99;
+  int _santidad = 99;
 
   @override
   void initState() {
@@ -25,6 +31,10 @@ class _GameState extends State<Game> {
     getPrefsInt('CurrentCard').then((value) {
       _currentCard = value;
       _appendImages10();
+    });
+
+    cargaDialogos.cargarData().then((value) {
+      print(value);
     });
 
     setState(() {});
@@ -48,7 +58,6 @@ class _GameState extends State<Game> {
                 Text('Carta actual número: $_currentCard'),
                 Divider(),
                 _status(),
-                Divider(),
                 _question(),
                 _tinderSwipe(),
                 _leftAnswer(),
@@ -112,17 +121,33 @@ class _GameState extends State<Game> {
         swipeCompleteCallback: (CardSwipeOrientation orientation, int index) {
           /// Get orientation & index of swiped card!
           _direction = 'None';
-
+          print(index);
+          print(_images.length);
           if (orientation != CardSwipeOrientation.RECOVER) {
             _currentCard++;
+          }
+
+          if (orientation == CardSwipeOrientation.LEFT) {
+            _salud--;
+            _reputacion--;
+            _dinero--;
+            _santidad--;
+          }
+
+          if (orientation == CardSwipeOrientation.RIGHT) {
+            _salud++;
+            _reputacion++;
+            _dinero++;
+            _santidad++;
           }
 
           if (orientation == CardSwipeOrientation.LEFT ||
               orientation == CardSwipeOrientation.RIGHT) {
             _images.removeAt(0);
+            _images.removeAt(0);
           }
 
-          if (_images.length == 0 &&
+          if ((_images.length == 0 || _images.length == 1) &&
               orientation != CardSwipeOrientation.RECOVER) {
             _appendImages10();
           }
@@ -141,6 +166,8 @@ class _GameState extends State<Game> {
     for (var i = 0; i < _cardNum; i++) {
       _uiltimoItem++;
       _aux.add('https://picsum.photos/500/300/?image=$_uiltimoItem');
+      _aux.add(
+          'https://static.wikia.nocookie.net/leagueoflegends/images/1/10/Towa_profileicon.png/revision/latest/top-crop/width/220/height/220?cb=20190827203050');
     }
     setState(() {
       _images = _aux;
@@ -206,15 +233,40 @@ class _GameState extends State<Game> {
   Widget _status() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      child: TextField(
-        enabled: false,
-        //autofocus: false,
-        textCapitalization: TextCapitalization.sentences,
-        decoration: InputDecoration(
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-            hintText: 'Barra de estado',
-            icon: Icon(Icons.star_outline_sharp)),
-        onChanged: (valor) {},
+      child: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.healing,
+              size: MediaQuery.of(context).size.width * 0.08,
+            ),
+            Text('$_salud%',
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05)),
+            Icon(
+              Icons.power,
+              size: MediaQuery.of(context).size.width * 0.08,
+            ),
+            Text('$_reputacion%',
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05)),
+            Icon(
+              Icons.monetization_on,
+              size: MediaQuery.of(context).size.width * 0.08,
+            ),
+            Text('$_dinero%',
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05)),
+            Icon(
+              Icons.house,
+              size: MediaQuery.of(context).size.width * 0.08,
+            ),
+            Text('$_santidad%',
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05)),
+          ],
+        ),
       ),
     );
   }
