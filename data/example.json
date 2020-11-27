@@ -2,8 +2,9 @@
   "historia":{
     "1":{
       "personaje":"Pepe",
-      "imagen":"assets/personajes/personaje1.jpeg",
+      "imagen":"characters/personaje1.jpeg",
       "dialogo":"¿A qué hora vas por el pan?",
+      "aleatorio":"false",
       "izquierda":{
         "dialogo": "A las 10",
         "salud":"+10",
@@ -21,8 +22,9 @@
     },
     "2":{
       "personaje":"Pepe",
-      "imagen":"assets/personajes/personaje1.jpeg",
+      "imagen":"characters/personaje1.jpeg",
       "dialogo":"¿Tas bien mano?",
+      "aleatorio":"false",
       "izquierda":{
         "dialogo": "Si",
         "salud":"+10",
@@ -40,8 +42,9 @@
     },
     "3":{
       "personaje":"Pepe",
-      "imagen":"assets/personajes/personaje1.jpeg",
+      "imagen":"characters/personaje1.jpeg",
       "dialogo":"¿Bob esponja o patricio?",
+      "aleatorio":"false",
       "izquierda":{
         "dialogo": "Bob esponja",
         "salud":"+10",
