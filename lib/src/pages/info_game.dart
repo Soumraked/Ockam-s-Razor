@@ -25,6 +25,7 @@ class _InfoGameState extends State<InfoGame> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        mini: true,
         child: Icon(Icons.arrow_back),
         onPressed: () {
           Navigator.pushReplacement(

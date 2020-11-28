@@ -21,9 +21,69 @@
       }
     },
     "2":{
+      "personaje":"Madi",
+      "imagen":"characters/personaje2.jpg",
+      "dialogo":"¿Tas bien mano?",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "Si",
+        "salud":"+10",
+        "dinero":"0",
+        "reputacion":"0",
+        "santidad":"+10"
+      },
+      "derecha":{
+        "dialogo": "No",
+        "salud":"+10",
+        "dinero":"+10",
+        "reputacion":"+10",
+        "santidad":"+20"
+      }
+    },
+    "3":{
+      "personaje":"Piedra",
+      "imagen":"characters/personaje3.jpg",
+      "dialogo":"¿Bob esponja o patricio?",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "Bob esponja",
+        "salud":"+10",
+        "dinero":"+10",
+        "reputacion":"-10",
+        "santidad":"-10"
+      },
+      "derecha":{
+        "dialogo": "Patricio",
+        "salud":"-10",
+        "dinero":"-10",
+        "reputacion":"+10",
+        "santidad":"+10"
+      }
+    },
+    "4":{
       "personaje":"Pepe",
       "imagen":"characters/personaje1.jpeg",
-      "dialogo":"¿Tas bien mano?",
+      "dialogo":"¿A qué hora comes?",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "A las 10",
+        "salud":"+10",
+        "dinero":"-15",
+        "reputacion":"0",
+        "santidad":"0"
+      },
+      "derecha":{
+        "dialogo": "No como",
+        "salud":"-10",
+        "dinero":"+15",
+        "reputacion":"0",
+        "santidad":"0"
+      }
+    },
+    "5":{
+      "personaje":"Madi",
+      "imagen":"characters/personaje2.jpg",
+      "dialogo":"¿Te gusta el queso?",
       "aleatorio":"false",
       "izquierda":{
         "dialogo": "Si",
@@ -40,20 +100,20 @@
         "santidad":"+20"
       }
     },
-    "3":{
-      "personaje":"Pepe",
-      "imagen":"characters/personaje1.jpeg",
-      "dialogo":"¿Bob esponja o patricio?",
+    "6":{
+      "personaje":"Piedra",
+      "imagen":"characters/personaje3.jpg",
+      "dialogo":"¿Tangananica o tanganana?",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "Bob esponja",
+        "dialogo": "Tangananica",
         "salud":"+10",
         "dinero":"+10",
         "reputacion":"-10",
         "santidad":"-10"
       },
       "derecha":{
-        "dialogo": "Patricio",
+        "dialogo": "Tanganana",
         "salud":"-10",
         "dinero":"-10",
         "reputacion":"+10",

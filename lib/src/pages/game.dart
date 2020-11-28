@@ -15,9 +15,9 @@ class Game extends StatefulWidget {
 }
 
 class _GameState extends State<Game> {
-  List<String> _images = new List();
-  int _uiltimoItem = 0;
-  int _cardNum = 3;
+  // List<String> _images = new List();
+  // int _uiltimoItem = 0;
+  // int _cardNum = 3;
   CardController _controllerCard = new CardController();
   String _direction = 'None';
   int _currentCard = 0;
@@ -62,6 +62,7 @@ class _GameState extends State<Game> {
     return Container(
       child: SafeArea(
         child: Scaffold(
+          // appBar: AppBar(),
           body: Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -74,17 +75,8 @@ class _GameState extends State<Game> {
                 _answer(),
               ],
             ),
-            // child: Container(
-            //   child: _tinderSwipe(),
-            // ),
           ),
-          floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => MenuPage()));
-            },
-          ),
+          floatingActionButton: _backButton(),
         ),
       ),
     );
@@ -106,18 +98,8 @@ class _GameState extends State<Game> {
         minWidth: MediaQuery.of(context).size.width * 0.8,
         minHeight: MediaQuery.of(context).size.width * 0.8,
         cardBuilder: (context, index) => Card(
-          child:
-              // FadeInImage(
-              //   image: AssetImage(_dialogos[0].imagen),
-              //   placeholder: AssetImage('assets/jar-loading.gif'),
-              //   fadeInDuration: Duration(milliseconds: 200),
-              //   height: 300,
-              //   fit: BoxFit.cover,
-              // ),
-
-              Image(
-            image: AssetImage(_dialogos[0].imagen),
-            // image: AssetImage('assets/jar-loading.gif'),
+          child: Image(
+            image: AssetImage(_dialogos[index].imagen),
           ),
         ),
         cardController: _controllerCard,
@@ -244,11 +226,6 @@ class _GameState extends State<Game> {
             //_dialogos.removeAt(0);
           }
 
-          // if ((_dialogos.length == 0 || _dialogos.length == 1) &&
-          //     orientation != CardSwipeOrientation.RECOVER) {
-          //   _appendImages10();
-          // }
-
           setState(() {});
         },
       ),
@@ -268,21 +245,21 @@ class _GameState extends State<Game> {
     setState(() {});
   }
 
-  void _appendImages10() {
-    if (_currentCard != 0) {
-      _uiltimoItem = _currentCard;
-    }
-    List<String> _aux = new List();
-    for (var i = 0; i < _cardNum; i++) {
-      _uiltimoItem++;
-      _aux.add('https://picsum.photos/500/300/?image=$_uiltimoItem');
-      _aux.add(
-          'https://static.wikia.nocookie.net/leagueoflegends/images/1/10/Towa_profileicon.png/revision/latest/top-crop/width/220/height/220?cb=20190827203050');
-    }
-    setState(() {
-      _images = _aux;
-    });
-  }
+  // void _appendImages10() {
+  //   if (_currentCard != 0) {
+  //     _uiltimoItem = _currentCard;
+  //   }
+  //   List<String> _aux = new List();
+  //   for (var i = 0; i < _cardNum; i++) {
+  //     _uiltimoItem++;
+  //     _aux.add('https://picsum.photos/500/300/?image=$_uiltimoItem');
+  //     _aux.add(
+  //         'https://static.wikia.nocookie.net/leagueoflegends/images/1/10/Towa_profileicon.png/revision/latest/top-crop/width/220/height/220?cb=20190827203050');
+  //   }
+  //   setState(() {
+  //     _images = _aux;
+  //   });
+  // }
 
   Widget _answer() {
     return Container(
@@ -387,6 +364,17 @@ class _GameState extends State<Game> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _backButton() {
+    return FloatingActionButton(
+      mini: true,
+      child: Icon(Icons.arrow_back),
+      onPressed: () {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => MenuPage()));
+      },
     );
   }
 }
