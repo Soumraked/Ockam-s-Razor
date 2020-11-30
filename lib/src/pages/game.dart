@@ -98,9 +98,18 @@ class _GameState extends State<Game> {
         minWidth: MediaQuery.of(context).size.width * 0.8,
         minHeight: MediaQuery.of(context).size.width * 0.8,
         cardBuilder: (context, index) => Card(
-          child: Image(
-            image: AssetImage(_dialogos[index].imagen),
-          ),
+          child: Container(
+            decoration: BoxDecoration(
+              // shape: BoxShape.circle,
+              borderRadius: BorderRadius.circular(30.0),
+              image:DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(_dialogos[index].imagen),
+                ),
+              ),
+            ),
+             
+        
         ),
         cardController: _controllerCard,
         swipeUpdateCallback: (DragUpdateDetails details, Alignment align) {
