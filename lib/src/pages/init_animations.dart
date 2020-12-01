@@ -22,11 +22,13 @@ class _InitAnimationsState extends State<InitAnimations> {
         child: Container(
           // color: Colors.white,
           decoration: new BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Colors.yellow, Colors.orange, Colors.red],
-                  stops: [0.5, 0.5, 0.8],
-                  begin: FractionalOffset.topCenter,
-                  end: FractionalOffset.bottomCenter)),
+              color:Colors.black  
+              // gradient: LinearGradient(
+              //     colors: [Colors.yellow, Colors.orange, Colors.red],
+              //     stops: [0.5, 0.5, 0.8],
+              //     begin: FractionalOffset.topCenter,
+              //     end: FractionalOffset.bottomCenter)
+              ),
           child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -39,7 +41,7 @@ class _InitAnimationsState extends State<InitAnimations> {
                   height: 100,
                 ),
                 Text(
-                  'Cargando...',
+                  '',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,

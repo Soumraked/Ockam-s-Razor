@@ -1,19 +1,19 @@
 {
   "historia":{
     "1":{
-      "personaje":"Pepe",
+      "personaje":"Principal",
       "imagen":"characters/personaje1.jpeg",
-      "dialogo":"¿A qué hora vas por el pan?",
-      "aleatorio":"false",
+      "dialogo":"...Miras a una criatura observandote",
+      "aleatorio":"False",
       "izquierda":{
-        "dialogo": "A las 10",
+        "dialogo": "¿Seymour?",
         "salud":"+10",
         "dinero":"-15",
         "reputacion":"0",
         "santidad":"0"
       },
       "derecha":{
-        "dialogo": "No como pan",
+        "dialogo": "¿Qué diablos?... ¿¿Seymour!??",
         "salud":"-10",
         "dinero":"+15",
         "reputacion":"0",
@@ -21,19 +21,19 @@
       }
     },
     "2":{
-      "personaje":"Madi",
+      "personaje":"Seymour",
       "imagen":"characters/personaje2.jpg",
-      "dialogo":"¿Tas bien mano?",
+      "dialogo":"¿Efectivamente, ese es mi nombre.?",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "Si",
+        "dialogo": "*GRITAS!!!!!!*",
         "salud":"+10",
         "dinero":"0",
         "reputacion":"0",
         "santidad":"+10"
       },
       "derecha":{
-        "dialogo": "No",
+        "dialogo": "Meh... ahora los perros hablan ... AAAAAAAAAAAAAAAAAAA!!",
         "salud":"+10",
         "dinero":"+10",
         "reputacion":"+10",
@@ -41,19 +41,19 @@
       }
     },
     "3":{
-      "personaje":"Piedra",
+      "personaje":"Seymour",
       "imagen":"characters/personaje3.jpg",
-      "dialogo":"¿Bob esponja o patricio?",
+      "dialogo":"Tranquilízate estamos en el año 3020, solo que yo Sali un poco antes debido a otros motivos...",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "Bob esponja",
+        "dialogo": "¿Qué motivos?",
         "salud":"+10",
         "dinero":"+10",
         "reputacion":"-10",
         "santidad":"-10"
       },
       "derecha":{
-        "dialogo": "Patricio",
+        "dialogo": "Me da igual saquenme de esta capsula luego *ashus*",
         "salud":"-10",
         "dinero":"-10",
         "reputacion":"+10",
@@ -61,19 +61,19 @@
       }
     },
     "4":{
-      "personaje":"Pepe",
+      "personaje":"Doctora",
       "imagen":"characters/personaje1.jpeg",
-      "dialogo":"¿A qué hora comes?",
+      "dialogo":"Disculpen por la interrupción pero déjame decirte que ha cambiado en los años que no estuviste, pero primero deja añadirte esta barra salud *Pinchazo*",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "A las 10",
+        "dialogo": "¿Q-Q-QUE?",
         "salud":"+10",
         "dinero":"-15",
         "reputacion":"0",
         "santidad":"0"
       },
       "derecha":{
-        "dialogo": "No como",
+        "dialogo": "¿P-P-PINCHAZO?",
         "salud":"-10",
         "dinero":"+15",
         "reputacion":"0",
@@ -81,19 +81,19 @@
       }
     },
     "5":{
-      "personaje":"Madi",
+      "personaje":"Principal",
       "imagen":"characters/personaje2.jpg",
-      "dialogo":"¿Te gusta el queso?",
+      "dialogo":" ¿Qué es esto?... Es como un videojuego ¿Por qué cada vez que hago algo me sube o baja la vida? ¿¡QUE ES ESA BARRA QUE TENGO ENCIMA!?",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "Si",
+        "dialogo": "*Piensa* Vaya mierda, es como un videojuego",
         "salud":"+10",
         "dinero":"0",
         "reputacion":"0",
         "santidad":"+10"
       },
       "derecha":{
-        "dialogo": "No",
+        "dialogo": "*Piensa* ¿Así que esto es como un videojuego?",
         "salud":"-10",
         "dinero":"0",
         "reputacion":"0",
@@ -101,19 +101,120 @@
       }
     },
     "6":{
-      "personaje":"Piedra",
+      "personaje":"Doctora",
       "imagen":"characters/personaje3.jpg",
-      "dialogo":"¿Tangananica o tanganana?",
+      "dialogo":"En el futuro si no eres útil o si no tiendes a ser compasivo en tus decisiones o con la sociedad en base a tus acciones... te bajara la vida y morirás o tendrás menos diálogos disponibles en caso de que tu carisma sea baja",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "Tangananica",
+        "dialogo": "¿Menos dialogos? SABIA QUE ERA UN VIDEOJUEGO",
         "salud":"+10",
         "dinero":"+10",
         "reputacion":"-10",
         "santidad":"-10"
       },
       "derecha":{
-        "dialogo": "Tanganana",
+        "dialogo": "Seguir escuchando...",
+        "salud":"-10",
+        "dinero":"-10",
+        "reputacion":"+10",
+        "santidad":"+10"
+      }
+    },
+    "7":{
+      "personaje":"Seymour",
+      "imagen":"characters/personaje2.jpg",
+      "dialogo":"Así es queridísimo amigo el futuro… es un poco diferente",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "Continuar",
+        "salud":"+10",
+        "dinero":"+10",
+        "reputacion":"-10",
+        "santidad":"-10"
+      },
+      "derecha":{
+        "dialogo": "Continuar",
+        "salud":"-10",
+        "dinero":"-10",
+        "reputacion":"+10",
+        "santidad":"+10"
+      }
+    },
+    "8":{
+      "personaje":"Seymour",
+      "imagen":"characters/personaje2.jpg",
+      "dialogo":"...",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "Hay cosas que no cambian...",
+        "salud":"+10",
+        "dinero":"+10",
+        "reputacion":"-10",
+        "santidad":"-10"
+      },
+      "derecha":{
+        "dialogo": "SEYMOUR QUE TE DIJE QUE DEJES HACER ESO EN PÚBLICO ",
+        "salud":"-10",
+        "dinero":"-10",
+        "reputacion":"+10",
+        "santidad":"+10"
+      }
+    },
+    "9":{
+      "personaje":"Seymour",
+      "imagen":"characters/personaje2.jpg",
+      "dialogo":"Discúlpenme, a pesar de que llevo diez años aquí aun no me acostumbro",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "¿DIEZ AÑOS?",
+        "salud":"+10",
+        "dinero":"+10",
+        "reputacion":"-10",
+        "santidad":"-10"
+      },
+      "derecha":{
+        "dialogo": "¿DIEZ AÑOS?",
+        "salud":"-10",
+        "dinero":"-10",
+        "reputacion":"+10",
+        "santidad":"+10"
+      }
+    },
+    "10":{
+      "personaje":"Don Seymour",
+      "imagen":"characters/personaje2.jpg",
+      "dialogo":"Ah si, y disculpa mi nombre ya no es Seymour, ahora me conocen como Don Seymourtron",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "Vaya nombre que te has inventando...",
+        "salud":"+10",
+        "dinero":"+10",
+        "reputacion":"-10",
+        "santidad":"-10"
+      },
+      "derecha":{
+        "dialogo": "Para mi seguiras siendo siempre Seymour, mi leal compañero ",
+        "salud":"-10",
+        "dinero":"-10",
+        "reputacion":"+10",
+        "santidad":"+10"
+      }
+    },
+      
+    "11":{
+      "personaje":"Doctora",
+      "imagen":"characters/personaje2.jpg",
+      "dialogo":"*Ejem* Muy bien querido, tu aventura está a punto de comenzar ahora elije un poke.. digo ¡Sal con tu mascota y conoce el futuro!",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "¿Acaso ibas a decir poketron?",
+        "salud":"+10",
+        "dinero":"+10",
+        "reputacion":"-10",
+        "santidad":"-10"
+      },
+      "derecha":{
+        "dialogo": "¡Entendí esa referencia!",
         "salud":"-10",
         "dinero":"-10",
         "reputacion":"+10",
