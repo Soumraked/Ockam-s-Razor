@@ -3,7 +3,7 @@
     "1":{
       "personaje":"Principal",
       "imagen":"characters/personaje1.jpeg",
-      "dialogo":"...Miras a una criatura observandote",
+      "dialogo":"...Miras a una extraña criatura observandote",
       "aleatorio":"False",
       "izquierda":{
         "dialogo": "¿Seymour?",
@@ -23,7 +23,7 @@
     "2":{
       "personaje":"Seymour",
       "imagen":"characters/personaje2.jpg",
-      "dialogo":"¿Efectivamente, ese es mi nombre.?",
+      "dialogo":"¿Efectivamente, ese es mi nombre?",
       "aleatorio":"false",
       "izquierda":{
         "dialogo": "*GRITAS!!!!!!*",

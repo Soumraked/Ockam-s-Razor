@@ -21,7 +21,7 @@ class _MenuPageState extends State<MenuPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                         TyperAnimatedTextKit(
-                    speed: Duration(milliseconds: 200),
+                    speed: Duration(milliseconds: 125),
                     pause: Duration(milliseconds:  1),
                     isRepeatingAnimation:false ,
                     text: [ "Ockam's Razor"],

@@ -41,5 +41,15 @@
       "reputacion":"+10",
       "santidad":"+10"
     }
+  },
+
+  "4":{
+      "weas que hacer":" "
   }
 }
+
+||Arreglar la animacion del texto
+||Bloquear pantalla cuando se pinte el texto
+||Ordenar como se muestra la  informacion(grid),
+||Restringir cuando pasan del 100% o el 0% 
+||Que las fuentes y todo sea adaptable a distintos tamaños de telefono
