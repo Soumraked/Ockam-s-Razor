@@ -8,6 +8,8 @@ import 'package:ockams_razor/src/pages/menu.dart';
 import 'package:ockams_razor/src/utils/utils.dart';
 
 import 'package:ockams_razor/src/providers/dialogs.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+
 
 class Game extends StatefulWidget {
   @override
@@ -70,8 +72,9 @@ class _GameState extends State<Game> {
                 Text('Carta actual número: $_currentCard'),
                 Divider(),
                 _status(),
-                _question(),
+               
                 _tinderSwipe(),
+                 _question(),
                 _answer(),
               ],
             ),
@@ -98,6 +101,7 @@ class _GameState extends State<Game> {
         minWidth: MediaQuery.of(context).size.width * 0.8,
         minHeight: MediaQuery.of(context).size.width * 0.8,
         cardBuilder: (context, index) => Card(
+          shape: RoundedRectangleBorder(  borderRadius: BorderRadius.circular(30.0)),
           child: Container(
             decoration: BoxDecoration(
               // shape: BoxShape.circle,
@@ -109,6 +113,7 @@ class _GameState extends State<Game> {
               ),
             ),
              
+            
         
         ),
         cardController: _controllerCard,
@@ -292,18 +297,34 @@ class _GameState extends State<Game> {
 
   Widget _question() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      child: TextField(
-        enabled: false,
-        //autofocus: false,
-        textCapitalization: TextCapitalization.sentences,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-          hintText:
-              '${_dialogos.length > 0 ? _dialogos[0].dialogo : "Aquí aparecerá la pregunta."}',
+      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+    
+      child: SizedBox(
+          child:TyperAnimatedTextKit(
+            speed: Duration(milliseconds: 200),
+            pause: Duration(milliseconds:  1),
+            isRepeatingAnimation:false ,
+            text: ['${_dialogos[0].dialogo }'],
+            textStyle: TextStyle(
+              fontSize: 20.0, 
+              fontWeight: FontWeight.bold,
+              color:Colors.black87),
+              alignment: AlignmentDirectional.centerEnd,
+
         ),
-        onChanged: (valor) {},
-      ),
+    
+      )   
+      // child: TextField(
+      //   enabled: false,
+      //   //autofocus: false,
+      //   textCapitalization: TextCapitalization.sentences,
+      //   decoration: InputDecoration(
+      //     border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+      //     hintText:
+      //         '${_dialogos[0].dialogo : "Aquí aparecerá la pregunta."}',
+      //   ),
+      //   onChanged: (valor) {},
+      // ),
     );
   }
 
