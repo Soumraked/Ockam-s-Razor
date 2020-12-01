@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:ockams_razor/src/pages/game.dart';
 import 'package:ockams_razor/src/pages/info_game.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -19,12 +20,15 @@ class _MenuPageState extends State<MenuPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  "Ockam's Razor",
-                  style: TextStyle(
+                        TyperAnimatedTextKit(
+                    speed: Duration(milliseconds: 200),
+                    pause: Duration(milliseconds:  1),
+                    isRepeatingAnimation:false ,
+                    text: [ "Ockam's Razor"],
+                    textStyle: TextStyle(
+                      fontSize: 40.0, 
                       fontWeight: FontWeight.bold,
-                      fontSize: 40,
-                      color: Colors.lightBlue),
+                     color: Colors.lightBlue),
                 ),
                 Divider(),
                 Container(

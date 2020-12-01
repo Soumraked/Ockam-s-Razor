@@ -1,4 +1,6 @@
-"3":{
+
+{
+"1":{
     "personaje":"Seymour",
     "imagen":"characters/Seymour.jpg",
     "dialogo":"Tranquilízate estamos en el año 3020, solo que yo Sali un poco antes debido a otros motivos...",
@@ -39,4 +41,5 @@
       "reputacion":"+10",
       "santidad":"+10"
     }
-  },
+  }
+}
