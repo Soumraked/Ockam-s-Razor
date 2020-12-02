@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:ockams_razor/src/pages/game.dart';
 import 'package:ockams_razor/src/pages/info_game.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'dart:async';
+import 'dart:math';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -10,6 +12,36 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
+
+  final _animationDuration = Duration(milliseconds: 800 );
+  Timer _timer;
+  Color _color;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(_animationDuration, (timer) => _changeColor());
+    _color = Colors.blue;
+  }
+  void _changeColor() {
+    List colores=[
+      Colors.red,
+      Colors.accents,
+      Colors.blue,
+      Colors.blueAccent,
+      Colors.pink,
+      Colors.green,
+      
+    ];
+    int largoLista= colores.length;
+    Random random = new Random();
+    int randomNumber = random.nextInt(largoLista);
+    final newColor =colores[randomNumber];
+    setState(() {
+      _color = newColor;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,12 +63,13 @@ class _MenuPageState extends State<MenuPage> {
                      color: Colors.lightBlue),
                 ),
                 Divider(),
-                Container(
-                  color: Colors.red,
+                AnimatedContainer(
+                   duration: _animationDuration,
+                  color: _color,
                   padding: EdgeInsets.all(2),
                   child: FlatButton(
                     color: Colors.black,
-                    splashColor: Colors.red,
+                    splashColor: Colors.blue,
                     onPressed: () {
                       _playGame();
                     },
@@ -51,12 +84,13 @@ class _MenuPageState extends State<MenuPage> {
                   ),
                 ),
                 Divider(),
-                Container(
-                  color: Colors.red,
+                AnimatedContainer(
+                  duration:_animationDuration,
+                  color: _color,
                   padding: EdgeInsets.all(2),
                   child: FlatButton(
                     color: Colors.black,
-                    splashColor: Colors.red,
+                    splashColor: Colors.blue,
                     onPressed: () {
                       _infoGame();
                     },
