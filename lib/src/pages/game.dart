@@ -72,7 +72,6 @@ class _GameState extends State<Game> {
                 _status(),
                 _question(),
                 _tinderSwipe(),
-               
                 _answer(),
               ],
             ),
@@ -109,10 +108,7 @@ class _GameState extends State<Game> {
                   image: AssetImage(_dialogos[index].imagen),
                 ),
               ),
-            ),
-             
-            
-        
+            ),  
         ),
         cardController: _controllerCard,
         swipeUpdateCallback: (DragUpdateDetails details, Alignment align) {
