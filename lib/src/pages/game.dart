@@ -69,12 +69,9 @@ class _GameState extends State<Game> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('Carta actual número: $_currentCard'),
-                Divider(),
                 _status(),
-               
+                _question(),
                 _tinderSwipe(),
-                 _question(),
                 _answer(),
               ],
             ),
@@ -111,10 +108,7 @@ class _GameState extends State<Game> {
                   image: AssetImage(_dialogos[index].imagen),
                 ),
               ),
-            ),
-             
-            
-        
+            ),  
         ),
         cardController: _controllerCard,
         swipeUpdateCallback: (DragUpdateDetails details, Alignment align) {
@@ -296,23 +290,13 @@ class _GameState extends State<Game> {
   }
 
   Widget _question() {
+    
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
     
       child: SizedBox(
-          child:TyperAnimatedTextKit(
-            speed: Duration(milliseconds: 200),
-            pause: Duration(milliseconds:  1),
-            isRepeatingAnimation:false ,
-            text: ['${_dialogos[0].dialogo }'],
-            textStyle: TextStyle(
-              fontSize: 20.0, 
-              fontWeight: FontWeight.bold,
-              color:Colors.black87),
-              alignment: AlignmentDirectional.centerEnd,
+          child:_dialogos.isEmpty ? Text("") :  _animation() , 
 
-        ),
-    
       )   
       // child: TextField(
       //   enabled: false,
@@ -406,5 +390,22 @@ class _GameState extends State<Game> {
             context, MaterialPageRoute(builder: (context) => MenuPage()));
       },
     );
+  }
+
+  Widget _animation() {
+    return (TyperAnimatedTextKit(
+            speed: Duration(milliseconds: 75),
+            pause: Duration(milliseconds:  1),
+            isRepeatingAnimation:false ,
+            text: ['${_dialogos[0].dialogo }'],
+            textStyle: TextStyle(
+              fontSize: 20.0, 
+              fontWeight: FontWeight.bold,
+              color:Colors.black87),
+              alignment: AlignmentDirectional.centerEnd,
+
+        )
+    );
+
   }
 }

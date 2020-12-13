@@ -54,7 +54,12 @@ class _InitAnimationsState extends State<InitAnimations> {
       ),
     );
   }
-
+  @override
+  void dispose() {
+    super.dispose();
+    
+  }
+  
   startTime() async {
     var duration = new Duration(seconds: 3);
     return new Timer(duration, route);

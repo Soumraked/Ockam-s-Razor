@@ -2,8 +2,8 @@
   "historia":{
     "1":{
       "personaje":"Principal",
-      "imagen":"characters/personaje1.jpeg",
-      "dialogo":"...Miras a una criatura observandote",
+      "imagen":"characters/personaje1.jpg",
+      "dialogo":"...Miras a una extraña criatura observandote",
       "aleatorio":"False",
       "izquierda":{
         "dialogo": "¿Seymour?",
@@ -23,7 +23,7 @@
     "2":{
       "personaje":"Seymour",
       "imagen":"characters/personaje2.jpg",
-      "dialogo":"¿Efectivamente, ese es mi nombre.?",
+      "dialogo":"¿Efectivamente, ese es mi nombre?",
       "aleatorio":"false",
       "izquierda":{
         "dialogo": "*GRITAS!!!!!!*",
@@ -62,7 +62,7 @@
     },
     "4":{
       "personaje":"Doctora",
-      "imagen":"characters/personaje1.jpeg",
+      "imagen":"characters/personaje1.jpg",
       "dialogo":"Disculpen por la interrupción pero déjame decirte que ha cambiado en los años que no estuviste, pero primero deja añadirte esta barra salud *Pinchazo*",
       "aleatorio":"false",
       "izquierda":{
