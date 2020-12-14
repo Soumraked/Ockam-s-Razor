@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         const Locale('en', 'US'),
         const Locale('es', 'ES'),
       ],
-      initialRoute: '/',
+      initialRoute: 'game',
       routes: getAplicationRoutes(),
       onGenerateRoute: (RouteSettings settings) {
         print('Ruta a la que intentó acceder: ${settings.name}');
