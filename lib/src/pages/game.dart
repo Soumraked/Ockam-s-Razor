@@ -10,6 +10,7 @@ import 'package:ockams_razor/src/utils/utils.dart';
 import 'package:ockams_razor/src/providers/dialogs.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+import 'package:auto_size_text/auto_size_text.dart';
 
 class Game extends StatefulWidget {
   @override
@@ -61,13 +62,15 @@ class _GameState extends State<Game> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: SafeArea(
-        child: Scaffold(
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          color: Color.fromRGBO(12, 12, 12, 1),
           // appBar: AppBar(),
-          body: Center(
+          child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _status(),
                 _question(),
@@ -76,9 +79,9 @@ class _GameState extends State<Game> {
               ],
             ),
           ),
-          floatingActionButton: _backButton(),
         ),
       ),
+      floatingActionButton: _backButton(),
     );
   }
 
@@ -98,17 +101,18 @@ class _GameState extends State<Game> {
         minWidth: MediaQuery.of(context).size.width * 0.8,
         minHeight: MediaQuery.of(context).size.width * 0.8,
         cardBuilder: (context, index) => Card(
-          shape: RoundedRectangleBorder(  borderRadius: BorderRadius.circular(30.0)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
           child: Container(
             decoration: BoxDecoration(
               // shape: BoxShape.circle,
               borderRadius: BorderRadius.circular(30.0),
-              image:DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(_dialogos[index].imagen),
-                ),
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(_dialogos[index].imagen),
               ),
-            ),  
+            ),
+          ),
         ),
         cardController: _controllerCard,
         swipeUpdateCallback: (DragUpdateDetails details, Alignment align) {
@@ -290,26 +294,23 @@ class _GameState extends State<Game> {
   }
 
   Widget _question() {
-    
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-    
-      child: SizedBox(
-          child:_dialogos.isEmpty ? Text("") :  _animation() , 
-
-      )   
-      // child: TextField(
-      //   enabled: false,
-      //   //autofocus: false,
-      //   textCapitalization: TextCapitalization.sentences,
-      //   decoration: InputDecoration(
-      //     border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-      //     hintText:
-      //         '${_dialogos[0].dialogo : "Aquí aparecerá la pregunta."}',
-      //   ),
-      //   onChanged: (valor) {},
-      // ),
-    );
+        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+        child: SizedBox(
+          child: _dialogos.isEmpty ? Text("") : _animation(),
+        )
+        // child: TextField(
+        //   enabled: false,
+        //   //autofocus: false,
+        //   textCapitalization: TextCapitalization.sentences,
+        //   decoration: InputDecoration(
+        //     border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+        //     hintText:
+        //         '${_dialogos[0].dialogo : "Aquí aparecerá la pregunta."}',
+        //   ),
+        //   onChanged: (valor) {},
+        // ),
+        );
   }
 
   Widget _status() {
@@ -328,11 +329,14 @@ class _GameState extends State<Game> {
                       ? Colors.green
                       : _saludSigno == '-'
                           ? Colors.red
-                          : Colors.black,
+                          : Colors.white,
             ),
-            Text('${_salud.round()}%',
-                style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05)),
+            Text(
+              '${_salud.round()}%',
+              style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  color: Colors.white),
+            ),
             Icon(
               Icons.power,
               size: MediaQuery.of(context).size.width * 0.08,
@@ -342,11 +346,13 @@ class _GameState extends State<Game> {
                       ? Colors.green
                       : _reputacionSigno == '-'
                           ? Colors.red
-                          : Colors.black,
+                          : Colors.white,
             ),
             Text('${_reputacion.round()}%',
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05)),
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  color: Colors.white,
+                )),
             Icon(
               Icons.monetization_on,
               size: MediaQuery.of(context).size.width * 0.08,
@@ -356,11 +362,13 @@ class _GameState extends State<Game> {
                       ? Colors.green
                       : _dineroSigno == '-'
                           ? Colors.red
-                          : Colors.black,
+                          : Colors.white,
             ),
             Text('${_dinero.round()}%',
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05)),
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  color: Colors.white,
+                )),
             Icon(
               Icons.house,
               size: MediaQuery.of(context).size.width * 0.08,
@@ -370,11 +378,13 @@ class _GameState extends State<Game> {
                       ? Colors.green
                       : _santidadSigno == '-'
                           ? Colors.red
-                          : Colors.black,
+                          : Colors.white,
             ),
             Text('${_santidad.round()}%',
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05)),
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  color: Colors.white,
+                )),
           ],
         ),
       ),
@@ -393,19 +403,22 @@ class _GameState extends State<Game> {
   }
 
   Widget _animation() {
-    return (TyperAnimatedTextKit(
-            speed: Duration(milliseconds: 75),
-            pause: Duration(milliseconds:  1),
-            isRepeatingAnimation:false ,
-            text: ['${_dialogos[0].dialogo }'],
-            textStyle: TextStyle(
-              fontSize: 20.0, 
-              fontWeight: FontWeight.bold,
-              color:Colors.black87),
-              alignment: AlignmentDirectional.centerEnd,
-
-        )
+    return Container(
+      // color: Colors.blue,
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.2,
+        width: MediaQuery.of(context).size.width * 0.9,
+        child: Center(
+          child: AutoSizeText(
+            '${_dialogos[0].dialogo}',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.06,
+                fontWeight: FontWeight.bold,
+                color: Colors.white),
+          ),
+        ),
+      ),
     );
-
   }
 }
