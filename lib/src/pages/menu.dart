@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:ockams_razor/src/pages/game.dart';
-import 'package:ockams_razor/src/pages/info_game.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+
+import 'dart:async';
+import 'dart:math';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -9,30 +11,82 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
+  final _animationDuration = Duration(milliseconds: 800);
+  Timer _timer;
+  Color _color;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(_animationDuration, (timer) => _changeColor());
+    _color = Colors.blue;
+  }
+
+  void _changeColor() {
+    List<dynamic> colores = [
+      Colors.red,
+      Colors.blue,
+      Colors.blueAccent,
+      Colors.pink,
+      Colors.green,
+    ];
+
+    int largoLista = colores.length;
+    Random random = new Random();
+    int randomNumber = random.nextInt(largoLista);
+    _color = colores[randomNumber];
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: Colors.black,
+          //  color:Colors.black,
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(12, 12, 12, 1),
+            image: DecorationImage(
+              image: AssetImage("assets/main2.gif"),
+              fit: BoxFit.fill,
+            ),
+          ),
+
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  "Ockam's Razor",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 40,
-                      color: Colors.lightBlue),
+                Divider(),
+                TyperAnimatedTextKit(
+                  speed: Duration(milliseconds: 125),
+                  pause: Duration(milliseconds: 1),
+                  isRepeatingAnimation: false,
+                  text: ["Ockam's Razor"],
+                  textStyle: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.09,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Mia',
+                    color: Colors.lightBlue,
+                    // height: 4,
+                    height: MediaQuery.of(context).size.height * 0.005,
+                    shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(10.0, 10.0),
+                        blurRadius: 30.0,
+                        color: Color.fromARGB(70, 255, 0, 0),
+                      ),
+                    ],
+                  ),
                 ),
                 Divider(),
-                Container(
-                  color: Colors.red,
+                AnimatedContainer(
+                  duration: _animationDuration,
+                  color: _color,
                   padding: EdgeInsets.all(2),
                   child: FlatButton(
-                    color: Colors.black,
-                    splashColor: Colors.red,
+                    // color: Colors.black,
+                    splashColor: _color,
                     onPressed: () {
                       _playGame();
                     },
@@ -40,19 +94,20 @@ class _MenuPageState extends State<MenuPage> {
                       "Jugar",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 40,
-                        color: Colors.blue[700],
+                        fontSize: MediaQuery.of(context).size.width * 0.1,
+                        color: Colors.black,
                       ),
                     ),
                   ),
                 ),
                 Divider(),
-                Container(
-                  color: Colors.red,
+                AnimatedContainer(
+                  duration: _animationDuration,
+                  color: _color,
                   padding: EdgeInsets.all(2),
                   child: FlatButton(
-                    color: Colors.black,
-                    splashColor: Colors.red,
+                    // color: Colors.black,
+                    splashColor: Colors.blue,
                     onPressed: () {
                       _infoGame();
                     },
@@ -60,8 +115,8 @@ class _MenuPageState extends State<MenuPage> {
                       "Como jugar",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 40,
-                        color: Colors.blue[700],
+                        fontSize: MediaQuery.of(context).size.width * 0.1,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -75,12 +130,10 @@ class _MenuPageState extends State<MenuPage> {
   }
 
   void _playGame() {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Game()));
+    Navigator.pushNamed(context, 'game');
   }
 
   void _infoGame() {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => InfoGame()));
+    Navigator.pushNamed(context, 'info');
   }
 }
