@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:ockams_razor/src/pages/game.dart';
 import 'package:ockams_razor/src/pages/info_game.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -28,7 +27,6 @@ class _MenuPageState extends State<MenuPage> {
   void _changeColor() {
     List<dynamic> colores=[
       Colors.red,
-      Colors.accents,
       Colors.blue,
       Colors.blueAccent,
       Colors.pink,
