@@ -64,7 +64,7 @@ class _MenuPageState extends State<MenuPage> {
                   isRepeatingAnimation: false,
                   text: ["Ockam's Razor"],
                   textStyle: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.09,
+                    fontSize: MediaQuery.of(context).size.width * 0.075,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Mia',
                     color: Colors.lightBlue,

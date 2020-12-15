@@ -27,9 +27,11 @@ class _InfoGameState extends State<InfoGame> {
       floatingActionButton: FloatingActionButton(
         mini: true,
         child: Icon(Icons.arrow_back),
+        backgroundColor: Color.fromARGB(221, 160, 54, 20),
         onPressed: () {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => MenuPage()));
+              context, MaterialPageRoute(builder: (context) => MenuPage())
+          );
         },
       ),
     );
@@ -37,36 +39,27 @@ class _InfoGameState extends State<InfoGame> {
 
   List<Widget> _images() {
     List<Widget> _aux = new List();
-
     _aux.add(_image1());
-    _aux.add(_image2());
     _aux.add(_image3());
-
     return _aux;
   }
 
   Widget _image1() {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          stops: [0.1, 0.4, 0.8, 1],
-          colors: [
-            Color(0xFF4563DB),
-            Color(0xFF5B16D0),
-            Color(0xFF5036D5),
-            Color(0xFF3594DD),
-          ],
-        ),
-      ),
+            color: Color.fromRGBO(12, 12, 12, 1),
+            image: DecorationImage(
+              image: AssetImage("assets/7dDt.gif"),
+              fit: BoxFit.fill,
+            ),
+          ),
       child: Column(
+        
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           CircleAvatar(
-            radius: 70,
-            backgroundImage: NetworkImage(
-                'https://static.wikia.nocookie.net/leagueoflegends/images/1/10/Towa_profileicon.png/revision/latest/top-crop/width/220/height/220?cb=20190827203050'),
+            radius: 90,
+            backgroundImage: AssetImage("assets/icono2.jpg"),
           ),
           SizedBox(
             height: 15,
@@ -87,123 +80,12 @@ class _InfoGameState extends State<InfoGame> {
                   borderRadius: BorderRadius.circular(20.0)),
               color: Colors.white,
               child: Container()),
+          
         ],
       ),
     );
   }
 
-  Widget _image2() {
-    return Container(
-      color: Colors.cyanAccent[100],
-      child: Column(
-        children: <Widget>[
-          FadeInImage(
-            image: NetworkImage(
-                'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Neeko_0.jpg'),
-            placeholder: AssetImage('assets/jar-loading.gif'),
-            fadeInDuration: Duration(milliseconds: 200),
-            height: 200,
-            fit: BoxFit.cover,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "Foods Item",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.blueGrey[800]),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          ListTile(
-            leading: Container(
-              width: 90,
-              height: 150,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: NetworkImage('https://picsum.photos/500/300/?image=2'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            title: Text(
-              "Pizza",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.black),
-            ),
-            subtitle: Text(
-              "Pizza is the world’s greatest food. Nothing says “I love you,” “I’m sorry,” or “Let’s be friends,” better than pizza.",
-              style: TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          ListTile(
-            leading: Container(
-              width: 90,
-              height: 150,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: NetworkImage('https://picsum.photos/500/300/?image=2'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            title: Text(
-              "Pasta",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.black),
-            ),
-            subtitle: Text(
-              "A super quick, healthy and delicious pasta that can de whipped up under\n15 minutes.",
-              style: TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          ListTile(
-            leading: Container(
-              width: 90,
-              height: 150,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: NetworkImage('https://picsum.photos/500/300/?image=2'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            title: Text(
-              "Chilli Potato",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.black),
-            ),
-            subtitle: Text(
-              "Chilli potato is a Indo chinese starter made with fried potatoes tossed in spicy, slightly sweet & sour chilli sauce. ",
-              style: TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
   Widget _image3() {
     return Container(
