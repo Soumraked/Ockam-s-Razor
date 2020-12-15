@@ -56,13 +56,13 @@ class _CargaDialogos {
           dataMap['historia'][key]['izquierda']['dialogo'],
           double.parse(dataMap['historia'][key]['izquierda']['salud']),
           double.parse(dataMap['historia'][key]['izquierda']['dinero']),
-          double.parse(dataMap['historia'][key]['izquierda']['reputacion']),
-          double.parse(dataMap['historia'][key]['izquierda']['santidad']),
+          double.parse(dataMap['historia'][key]['izquierda']['carisma']),
+          double.parse(dataMap['historia'][key]['izquierda']['suerte']),
           dataMap['historia'][key]['derecha']['dialogo'],
           double.parse(dataMap['historia'][key]['derecha']['salud']),
           double.parse(dataMap['historia'][key]['derecha']['dinero']),
-          double.parse(dataMap['historia'][key]['derecha']['reputacion']),
-          double.parse(dataMap['historia'][key]['derecha']['santidad'])));
+          double.parse(dataMap['historia'][key]['derecha']['carisma']),
+          double.parse(dataMap['historia'][key]['derecha']['suerte'])));
     });
 
     return dialogos;
@@ -70,3 +70,7 @@ class _CargaDialogos {
 }
 
 final cargaDialogos = new _CargaDialogos();
+final dialogoCarga = new Dialogo(
+    '1', 'assets/poof.gif', '', true, '', 0, 0, 0, 0, "", 0, 0, 0, 0);
+final dialogoFondo = new Dialogo(
+    '1', 'assets/fondo.jpg', '', true, '', 0, 0, 0, 0, "", 0, 0, 0, 0);

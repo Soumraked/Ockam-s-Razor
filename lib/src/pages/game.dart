@@ -25,18 +25,19 @@ class _GameState extends State<Game> {
   String _direction = 'None';
   int _currentCard = 0;
   double _salud = 50;
-  double _reputacion = 50;
+  double _carisma = 50;
   double _dinero = 50;
-  double _santidad = 50;
+  double _suerte = 50;
   bool _saludStatus = false;
-  bool _reputacionStatus = false;
+  bool _carismaStatus = false;
   bool _dineroStatus = false;
-  bool _santidadStatus = false;
+  bool _suerteStatus = false;
   String _saludSigno = "";
-  String _reputacionSigno = "";
+  String _carismaSigno = "";
   String _dineroSigno = "";
-  String _santidadSigno = "";
+  String _suerteSigno = "";
   List<Dialogo> _dialogos = new List();
+  List<Dialogo> _dialogo = new List();
 
   @override
   void initState() {
@@ -50,6 +51,11 @@ class _GameState extends State<Game> {
     cargaDialogos.cargarData().then((value) {
       setState(() {
         _dialogos = value;
+        _dialogo.add(value[0]);
+        _dialogo.add(dialogoFondo);
+        _dialogo.add(dialogoFondo);
+        // _dialogo.add(dialogoCarga);
+        _dialogos.removeAt(0);
       });
     });
   }
@@ -74,7 +80,10 @@ class _GameState extends State<Game> {
               children: [
                 _status(),
                 _question(),
-                _tinderSwipe(),
+                AbsorbPointer(
+                  absorbing: _dialogo.length <= 2,
+                  child: _tinderSwipe(),
+                ),
                 _answer(),
               ],
             ),
@@ -87,15 +96,15 @@ class _GameState extends State<Game> {
 
   Widget _tinderSwipe() {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.5,
+      height: MediaQuery.of(context).size.height * 0.4,
       child: new TinderSwapCard(
-        swipeUp: true,
-        swipeDown: true,
+        swipeUp: false,
+        swipeDown: false,
         orientation: AmassOrientation.BOTTOM,
-        totalNum: _dialogos.length,
-        stackNum: 3,
-        swipeEdge: 6.0,
-        animDuration: 300,
+        totalNum: _dialogo.length,
+        stackNum: 2,
+        swipeEdge: 7.0,
+        animDuration: 0,
         maxWidth: MediaQuery.of(context).size.width * 0.9,
         maxHeight: MediaQuery.of(context).size.width * 0.9,
         minWidth: MediaQuery.of(context).size.width * 0.8,
@@ -109,7 +118,7 @@ class _GameState extends State<Game> {
               borderRadius: BorderRadius.circular(30.0),
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage(_dialogos[index].imagen),
+                image: AssetImage(_dialogo[index].imagen),
               ),
             ),
           ),
@@ -120,112 +129,112 @@ class _GameState extends State<Game> {
           if (align.x < 0) {
             //Card is LEFT swiping
             _direction = 'Left';
-            if (_dialogos[0].izquierdaSalud != 0.0) {
+            if (_dialogo[0].izquierdaSalud != 0.0) {
               _saludStatus = true;
             }
-            if (_dialogos[0].izquierdaReputacion != 0.0) {
-              _reputacionStatus = true;
+            if (_dialogo[0].izquierdaReputacion != 0.0) {
+              _carismaStatus = true;
             }
-            if (_dialogos[0].izquierdaDinero != 0.0) {
+            if (_dialogo[0].izquierdaDinero != 0.0) {
               _dineroStatus = true;
             }
-            if (_dialogos[0].izquierdaSantidad != 0.0) {
-              _santidadStatus = true;
+            if (_dialogo[0].izquierdaSantidad != 0.0) {
+              _suerteStatus = true;
             }
           } else if (align.x > 0) {
             //Card is RIGHT swiping
             _direction = 'Rigth';
-            if (_dialogos[0].derechaSalud != 0.0) {
+            if (_dialogo[0].derechaSalud != 0.0) {
               _saludStatus = true;
             }
-            if (_dialogos[0].derechaReputacion != 0.0) {
-              _reputacionStatus = true;
+            if (_dialogo[0].derechaReputacion != 0.0) {
+              _carismaStatus = true;
             }
-            if (_dialogos[0].derechaDinero != 0.0) {
+            if (_dialogo[0].derechaDinero != 0.0) {
               _dineroStatus = true;
             }
-            if (_dialogos[0].derechaSantidad != 0.0) {
-              _santidadStatus = true;
+            if (_dialogo[0].derechaSantidad != 0.0) {
+              _suerteStatus = true;
             }
           } else {
             _direction = 'None';
 
             _saludStatus = false;
-            _reputacionStatus = false;
+            _carismaStatus = false;
             _dineroStatus = false;
-            _santidadStatus = false;
+            _suerteStatus = false;
           }
           _saludSigno = '';
-          _reputacionSigno = '';
+          _carismaSigno = '';
           _dineroSigno = '';
-          _santidadSigno = '';
+          _suerteSigno = '';
           setState(() {});
         },
         swipeCompleteCallback: (CardSwipeOrientation orientation, int index) {
           /// Get orientation & index of swiped card!
           _direction = 'None';
           _saludStatus = false;
-          _reputacionStatus = false;
+          _carismaStatus = false;
           _dineroStatus = false;
-          _santidadStatus = false;
+          _suerteStatus = false;
 
           print(_saludStatus);
-          print(_reputacionStatus);
+          print(_carismaStatus);
           print(_dineroStatus);
-          print(_santidadStatus);
+          print(_suerteStatus);
 
           if (orientation == CardSwipeOrientation.LEFT) {
-            _salud += _dialogos[0].izquierdaSalud;
-            _reputacion += _dialogos[0].izquierdaReputacion;
-            _dinero += _dialogos[0].izquierdaDinero;
-            _santidad += _dialogos[0].izquierdaSantidad;
+            _salud += _dialogo[0].izquierdaSalud;
+            _carisma += _dialogo[0].izquierdaReputacion;
+            _dinero += _dialogo[0].izquierdaDinero;
+            _suerte += _dialogo[0].izquierdaSantidad;
 
-            _saludSigno = _dialogos[0].izquierdaSalud > 0
+            _saludSigno = _dialogo[0].izquierdaSalud > 0
                 ? '+'
-                : _dialogos[0].izquierdaSalud < 0
+                : _dialogo[0].izquierdaSalud < 0
                     ? '-'
                     : '';
-            _reputacionSigno = _dialogos[0].izquierdaReputacion > 0
+            _carismaSigno = _dialogo[0].izquierdaReputacion > 0
                 ? '+'
-                : _dialogos[0].izquierdaReputacion < 0
+                : _dialogo[0].izquierdaReputacion < 0
                     ? '-'
                     : '';
-            _dineroSigno = _dialogos[0].izquierdaDinero > 0
+            _dineroSigno = _dialogo[0].izquierdaDinero > 0
                 ? '+'
-                : _dialogos[0].izquierdaDinero < 0
+                : _dialogo[0].izquierdaDinero < 0
                     ? '-'
                     : '';
-            _santidadSigno = _dialogos[0].izquierdaSantidad > 0
+            _suerteSigno = _dialogo[0].izquierdaSantidad > 0
                 ? '+'
-                : _dialogos[0].izquierdaSantidad < 0
+                : _dialogo[0].izquierdaSantidad < 0
                     ? '-'
                     : '';
           }
 
           if (orientation == CardSwipeOrientation.RIGHT) {
-            _salud += _dialogos[0].derechaSalud;
-            _reputacion += _dialogos[0].derechaReputacion;
-            _dinero += _dialogos[0].derechaDinero;
-            _santidad += _dialogos[0].derechaSantidad;
+            _salud += _dialogo[0].derechaSalud;
+            _carisma += _dialogo[0].derechaReputacion;
+            _dinero += _dialogo[0].derechaDinero;
+            _suerte += _dialogo[0].derechaSantidad;
 
-            _saludSigno = _dialogos[0].derechaSalud > 0
+            _saludSigno = _dialogo[0].derechaSalud > 0
                 ? '+'
-                : _dialogos[0].derechaSalud < 0
+                : _dialogo[0].derechaSalud < 0
                     ? '-'
                     : '';
-            _reputacionSigno = _dialogos[0].derechaReputacion > 0
+            _carismaSigno = _dialogo[0].derechaReputacion > 0
                 ? '+'
-                : _dialogos[0].derechaReputacion < 0
+                : _dialogo[0].derechaReputacion < 0
                     ? '-'
                     : '';
-            _dineroSigno = _dialogos[0].derechaDinero > 0
+            _dineroSigno = _dialogo[0].derechaDinero > 0
                 ? '+'
-                : _dialogos[0].derechaDinero < 0
+                : _dialogo[0].derechaDinero < 0
                     ? '-'
                     : '';
-            _santidadSigno = _dialogos[0].derechaSantidad > 0
+            _suerteSigno = _dialogo[0].derechaSantidad > 0
                 ? '+'
-                : _dialogos[0].derechaSantidad < 0
+                : _dialogo[0].derechaSantidad < 0
                     ? '-'
                     : '';
           }
@@ -234,7 +243,9 @@ class _GameState extends State<Game> {
               orientation == CardSwipeOrientation.RIGHT) {
             _hideColorStatus();
 
-            _dialogos.removeAt(0);
+            _dialogo.removeAt(0);
+            _dialogo.removeAt(0);
+            timeTransition();
             //_dialogos.removeAt(0);
           }
 
@@ -244,6 +255,33 @@ class _GameState extends State<Game> {
     );
   }
 
+  timeTransition() async {
+    var duration = new Duration(milliseconds: 100);
+    return new Timer(duration, transition);
+  }
+
+  transition() {
+    if (_dialogos.isEmpty) {
+      _dialogos.removeAt(0);
+      rellenarDialogos();
+    } else {
+      _dialogo.insert(0, dialogoFondo);
+      _dialogo.insert(0, _dialogos[0]);
+      _dialogos.removeAt(0);
+    }
+    setState(() {});
+  }
+
+  rellenarDialogos() async {
+    cargaDialogos.cargarData().then((value) {
+      _dialogos = value;
+      _dialogo.add(value[0]);
+      _dialogo.add(dialogoFondo);
+      _dialogos.removeAt(0);
+      setState(() {});
+    });
+  }
+
   _hideColorStatus() {
     var duration = new Duration(seconds: 1);
     return new Timer(duration, _hideColorStatusAux);
@@ -251,43 +289,27 @@ class _GameState extends State<Game> {
 
   void _hideColorStatusAux() {
     _saludSigno = '';
-    _reputacionSigno = '';
+    _carismaSigno = '';
     _dineroSigno = '';
-    _santidadSigno = '';
+    _suerteSigno = '';
     setState(() {});
   }
 
-  // void _appendImages10() {
-  //   if (_currentCard != 0) {
-  //     _uiltimoItem = _currentCard;
-  //   }
-  //   List<String> _aux = new List();
-  //   for (var i = 0; i < _cardNum; i++) {
-  //     _uiltimoItem++;
-  //     _aux.add('https://picsum.photos/500/300/?image=$_uiltimoItem');
-  //     _aux.add(
-  //         'https://static.wikia.nocookie.net/leagueoflegends/images/1/10/Towa_profileicon.png/revision/latest/top-crop/width/220/height/220?cb=20190827203050');
-  //   }
-  //   setState(() {
-  //     _images = _aux;
-  //   });
-  // }
-
   Widget _answer() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      child: Container(
-        color: _direction != 'None' ? Colors.lightBlueAccent : Colors.white,
-        child: TextField(
-          enabled: false,
-          //autofocus: false,
-          textCapitalization: TextCapitalization.sentences,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-            hintText:
-                '${_dialogos.length > 0 && _direction == "Left" ? _dialogos[0].izquierdaDialogo : _dialogos.length > 0 && _direction == "Rigth" ? _dialogos[0].derechaDialogo : "Desliza para ver las opciones."}',
+      // color: Colors.blue,
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.2,
+        width: MediaQuery.of(context).size.width * 0.9,
+        child: Center(
+          child: AutoSizeText(
+            '${_dialogo.length > 0 && _direction == "Left" ? _dialogo[0].izquierdaDialogo : _dialogo.length > 0 && _direction == "Rigth" ? _dialogo[0].derechaDialogo : "Desliza para ver las opciones."}',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.06,
+                fontWeight: FontWeight.bold,
+                color: Colors.white),
           ),
-          onChanged: (valor) {},
         ),
       ),
     );
@@ -295,97 +317,88 @@ class _GameState extends State<Game> {
 
   Widget _question() {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-        child: SizedBox(
-          child: _dialogos.isEmpty ? Text("") : _animation(),
-        )
-        // child: TextField(
-        //   enabled: false,
-        //   //autofocus: false,
-        //   textCapitalization: TextCapitalization.sentences,
-        //   decoration: InputDecoration(
-        //     border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-        //     hintText:
-        //         '${_dialogos[0].dialogo : "Aquí aparecerá la pregunta."}',
-        //   ),
-        //   onChanged: (valor) {},
-        // ),
-        );
+      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
+      child: _dialogo.isEmpty ? Text("") : _animation(),
+    );
   }
 
   Widget _status() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      padding: EdgeInsets.symmetric(vertical: 10),
       child: Center(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              Icons.healing,
-              size: MediaQuery.of(context).size.width * 0.08,
-              color: _saludStatus
-                  ? Colors.grey
-                  : _saludSigno == '+'
-                      ? Colors.green
-                      : _saludSigno == '-'
-                          ? Colors.red
-                          : Colors.white,
-            ),
-            Text(
-              '${_salud.round()}%',
-              style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.05,
-                  color: Colors.white),
-            ),
-            Icon(
-              Icons.power,
-              size: MediaQuery.of(context).size.width * 0.08,
-              color: _reputacionStatus
-                  ? Colors.grey
-                  : _reputacionSigno == '+'
-                      ? Colors.green
-                      : _reputacionSigno == '-'
-                          ? Colors.red
-                          : Colors.white,
-            ),
-            Text('${_reputacion.round()}%',
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height * 0.1,
+          width: MediaQuery.of(context).size.width * 0.8,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.healing,
+                size: MediaQuery.of(context).size.width * 0.08,
+                color: _saludStatus
+                    ? Colors.grey
+                    : _saludSigno == '+'
+                        ? Colors.green
+                        : _saludSigno == '-'
+                            ? Colors.red
+                            : Colors.white,
+              ),
+              Text(
+                '${_salud.round()}%',
                 style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.05,
-                  color: Colors.white,
-                )),
-            Icon(
-              Icons.monetization_on,
-              size: MediaQuery.of(context).size.width * 0.08,
-              color: _dineroStatus
-                  ? Colors.grey
-                  : _dineroSigno == '+'
-                      ? Colors.green
-                      : _dineroSigno == '-'
-                          ? Colors.red
-                          : Colors.white,
-            ),
-            Text('${_dinero.round()}%',
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.05,
-                  color: Colors.white,
-                )),
-            Icon(
-              Icons.house,
-              size: MediaQuery.of(context).size.width * 0.08,
-              color: _santidadStatus
-                  ? Colors.grey
-                  : _santidadSigno == '+'
-                      ? Colors.green
-                      : _santidadSigno == '-'
-                          ? Colors.red
-                          : Colors.white,
-            ),
-            Text('${_santidad.round()}%',
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.05,
-                  color: Colors.white,
-                )),
-          ],
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    color: Colors.white),
+              ),
+              Icon(
+                Icons.child_care,
+                size: MediaQuery.of(context).size.width * 0.08,
+                color: _carismaStatus
+                    ? Colors.grey
+                    : _carismaSigno == '+'
+                        ? Colors.green
+                        : _carismaSigno == '-'
+                            ? Colors.red
+                            : Colors.white,
+              ),
+              Text('${_carisma.round()}%',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    color: Colors.white,
+                  )),
+              Icon(
+                Icons.monetization_on_outlined,
+                size: MediaQuery.of(context).size.width * 0.08,
+                color: _dineroStatus
+                    ? Colors.grey
+                    : _dineroSigno == '+'
+                        ? Colors.green
+                        : _dineroSigno == '-'
+                            ? Colors.red
+                            : Colors.white,
+              ),
+              Text('${_dinero.round()}%',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    color: Colors.white,
+                  )),
+              Icon(
+                Icons.auto_awesome,
+                size: MediaQuery.of(context).size.width * 0.08,
+                color: _suerteStatus
+                    ? Colors.grey
+                    : _suerteSigno == '+'
+                        ? Colors.green
+                        : _suerteSigno == '-'
+                            ? Colors.red
+                            : Colors.white,
+              ),
+              Text('${_suerte.round()}%',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    color: Colors.white,
+                  )),
+            ],
+          ),
         ),
       ),
     );
@@ -410,7 +423,7 @@ class _GameState extends State<Game> {
         width: MediaQuery.of(context).size.width * 0.9,
         child: Center(
           child: AutoSizeText(
-            '${_dialogos[0].dialogo}',
+            '${_dialogo[0].dialogo}',
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: MediaQuery.of(context).size.width * 0.06,

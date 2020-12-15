@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ockams_razor">
    <application
-        android:label="ockams_razor"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Ockam's Razor"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
