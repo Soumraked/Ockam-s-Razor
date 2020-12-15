@@ -325,11 +325,158 @@ class _GameState extends State<Game> {
   Widget _status() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10),
+      child: Container(
+        // color: Colors.blue,
+        // child: _statusNormal(),
+        child: _grid(),
+      ),
+    );
+  }
+
+  Widget _grid() {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.1,
+      width: MediaQuery.of(context).size.width * 0.9,
       child: Center(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.1,
-          width: MediaQuery.of(context).size.width * 0.8,
-          child: Row(
+        child: GridView.count(
+          childAspectRatio: 4,
+          crossAxisCount: 4,
+          children: [
+            Text(
+              '${_salud.round()}%',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.05,
+                color: _saludStatus
+                    ? Colors.grey
+                    : _saludSigno == '+'
+                        ? Colors.green
+                        : _saludSigno == '-'
+                            ? Colors.red
+                            : Colors.white,
+              ),
+            ),
+            Text('${_carisma.round()}%',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  color: _carismaStatus
+                      ? Colors.grey
+                      : _carismaSigno == '+'
+                          ? Colors.green
+                          : _carismaSigno == '-'
+                              ? Colors.red
+                              : Colors.white,
+                )),
+            Text('${_dinero.round()}%',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  color: _dineroStatus
+                      ? Colors.grey
+                      : _dineroSigno == '+'
+                          ? Colors.green
+                          : _dineroSigno == '-'
+                              ? Colors.red
+                              : Colors.white,
+                )),
+            Text(
+              '${_suerte.round()}%',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.05,
+                color: _suerteStatus
+                    ? Colors.grey
+                    : _suerteSigno == '+'
+                        ? Colors.green
+                        : _suerteSigno == '-'
+                            ? Colors.red
+                            : Colors.white,
+              ),
+            ),
+            Icon(
+              Icons.healing,
+              size: MediaQuery.of(context).size.width * 0.08,
+              color: _saludStatus
+                  ? Colors.grey
+                  : _saludSigno == '+'
+                      ? Colors.green
+                      : _saludSigno == '-'
+                          ? Colors.red
+                          : Colors.white,
+            ),
+            Icon(
+              Icons.child_care,
+              size: MediaQuery.of(context).size.width * 0.08,
+              color: _carismaStatus
+                  ? Colors.grey
+                  : _carismaSigno == '+'
+                      ? Colors.green
+                      : _carismaSigno == '-'
+                          ? Colors.red
+                          : Colors.white,
+            ),
+            Icon(
+              Icons.monetization_on_outlined,
+              size: MediaQuery.of(context).size.width * 0.08,
+              color: _dineroStatus
+                  ? Colors.grey
+                  : _dineroSigno == '+'
+                      ? Colors.green
+                      : _dineroSigno == '-'
+                          ? Colors.red
+                          : Colors.white,
+            ),
+            Icon(
+              Icons.auto_awesome,
+              size: MediaQuery.of(context).size.width * 0.08,
+              color: _suerteStatus
+                  ? Colors.grey
+                  : _suerteSigno == '+'
+                      ? Colors.green
+                      : _suerteSigno == '-'
+                          ? Colors.red
+                          : Colors.white,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _statusNormal() {
+    return Center(
+      child: Column(
+        children: [
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                '${_salud.round()}%',
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    color: Colors.white),
+              ),
+              Text('${_carisma.round()}%',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    color: Colors.white,
+                  )),
+              Text('${_dinero.round()}%',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    color: Colors.white,
+                  )),
+              Text(
+                '${_suerte.round()}%',
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+          Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(
@@ -343,12 +490,6 @@ class _GameState extends State<Game> {
                             ? Colors.red
                             : Colors.white,
               ),
-              Text(
-                '${_salud.round()}%',
-                style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
-                    color: Colors.white),
-              ),
               Icon(
                 Icons.child_care,
                 size: MediaQuery.of(context).size.width * 0.08,
@@ -360,11 +501,6 @@ class _GameState extends State<Game> {
                             ? Colors.red
                             : Colors.white,
               ),
-              Text('${_carisma.round()}%',
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
-                    color: Colors.white,
-                  )),
               Icon(
                 Icons.monetization_on_outlined,
                 size: MediaQuery.of(context).size.width * 0.08,
@@ -376,11 +512,6 @@ class _GameState extends State<Game> {
                             ? Colors.red
                             : Colors.white,
               ),
-              Text('${_dinero.round()}%',
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
-                    color: Colors.white,
-                  )),
               Icon(
                 Icons.auto_awesome,
                 size: MediaQuery.of(context).size.width * 0.08,
@@ -392,14 +523,9 @@ class _GameState extends State<Game> {
                             ? Colors.red
                             : Colors.white,
               ),
-              Text('${_suerte.round()}%',
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
-                    color: Colors.white,
-                  )),
             ],
           ),
-        ),
+        ],
       ),
     );
   }
@@ -408,6 +534,7 @@ class _GameState extends State<Game> {
     return FloatingActionButton(
       mini: true,
       child: Icon(Icons.arrow_back),
+      backgroundColor: Color.fromARGB(221, 160, 54, 20),
       onPressed: () {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => MenuPage()));
@@ -421,7 +548,7 @@ class _GameState extends State<Game> {
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.2,
         width: MediaQuery.of(context).size.width * 0.9,
-        child: Center(  
+        child: Center(
           child: AutoSizeText(
             '${_dialogo[0].dialogo}',
             textAlign: TextAlign.center,
