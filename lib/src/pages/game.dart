@@ -37,6 +37,8 @@ class _GameState extends State<Game> {
   String _suerteSigno = '';
   List<Dialogo> _dialogos = new List();
   List<Dialogo> _dialogo = new List();
+  List<String> _partes = ['parte1', 'parte2', 'parte3', 'win'];
+  String _parte;
 
   var random = new Random();
   int _randomDeath;
@@ -46,6 +48,7 @@ class _GameState extends State<Game> {
   @override
   void initState() {
     getPrefsString('section').then((v) {
+      _parte = v.split(';')[0] == '' ? 'parte1' : v.split(';')[0];
       String _section = v.split(';')[0] == '' ? 'parte1' : v.split(';')[0];
       String _key = v.split(';')[1] == '' ? '1' : v.split(';')[1];
       CargaDialogos(_section, _key).cargarData(_section, _key).then((value) {
@@ -78,17 +81,12 @@ class _GameState extends State<Game> {
 
   @override
   void dispose() {
+    setPrefsBool('partida', true);
     setPrefsString('section', 'parte1;${_dialogo[0].key}');
     setPrefsInt('_salud', _salud.toInt());
     setPrefsInt('_carisma', _carisma.toInt());
     setPrefsInt('_dinero', _dinero.toInt());
     setPrefsInt('_suerte', _suerte.toInt());
-
-    // setPrefsString('section', 'parte1;1');
-    // setPrefsInt('_salud', 50);
-    // setPrefsInt('_carisma', 50);
-    // setPrefsInt('_dinero', 50);
-    // setPrefsInt('_suerte', 50);
     super.dispose();
   }
 
@@ -289,9 +287,6 @@ class _GameState extends State<Game> {
             timeTransition();
             if (_dialogos.length == 0) {}
           }
-
-          print('${_dialogos.length}');
-
           setState(() {});
         },
       ),
@@ -315,15 +310,20 @@ class _GameState extends State<Game> {
   }
 
   rellenarDialogos() {
-    _dialogo = new List();
-    CargaDialogos('parte1', '1').cargarData('parte1', '1').then((value) {
-      _dialogos = value;
-      _dialogo.add(value[0]);
-      _dialogo.add(dialogoFondo);
-      _dialogo.add(dialogoFondo);
-      _dialogos.removeAt(0);
-      setState(() {});
-    });
+    _parte = _partes[_partes.indexOf(_parte) + 1];
+    if (_parte == 'win') {
+      Navigator.pushNamed(context, 'win');
+    } else {
+      _dialogo = new List();
+      CargaDialogos(_parte, '1').cargarData(_parte, '1').then((value) {
+        _dialogos = value;
+        _dialogo.add(value[0]);
+        _dialogo.add(dialogoFondo);
+        _dialogo.add(dialogoFondo);
+        _dialogos.removeAt(0);
+        setState(() {});
+      });
+    }
   }
 
   _hideColorStatus() {

@@ -6,23 +6,17 @@ import 'dart:math';
 
 import 'package:ockams_razor/src/utils/utils.dart';
 
-class DeathPage extends StatefulWidget {
+class WinPage extends StatefulWidget {
   @override
-  _DeathPageState createState() => _DeathPageState();
+  _WinPageState createState() => _WinPageState();
 }
 
-class _DeathPageState extends State<DeathPage> {
-  Muerte _muerte;
+class _WinPageState extends State<WinPage> {
   Color _color;
   final _animationDuration = Duration(milliseconds: 800);
 
   @override
   void initState() {
-    cargaMuertes.cargarData().then((value) {
-      setState(() {
-        _muerte = value;
-      });
-    });
     Timer.periodic(_animationDuration, (timer) => _changeColor());
     _color = Colors.blue;
     super.initState();
@@ -55,10 +49,8 @@ class _DeathPageState extends State<DeathPage> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _textDeath(
-                    ModalRoute.of(context).settings.arguments.toString()),
-                _cardDeath(
-                    ModalRoute.of(context).settings.arguments.toString()),
+                _textWin(),
+                _cardWin(),
                 Divider(),
                 _buttonBack(),
               ],
@@ -69,7 +61,7 @@ class _DeathPageState extends State<DeathPage> {
     );
   }
 
-  Widget _textDeath(String _message) {
+  Widget _textWin() {
     return Container(
       // color: Colors.blue,
       child: SizedBox(
@@ -77,7 +69,7 @@ class _DeathPageState extends State<DeathPage> {
         width: MediaQuery.of(context).size.width * 0.9,
         child: Center(
           child: AutoSizeText(
-            _messageMuerte(_message),
+            "Felicidades, haz llegado al fin de Ockam's Razor por el momento, mantente atento a nuevas actualizaciones para poder seguir tu hstoria con Seymour Diera.\nMuchas gracias por jugar, nos vemos en el futuro.",
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: MediaQuery.of(context).size.width * 0.06,
@@ -89,7 +81,7 @@ class _DeathPageState extends State<DeathPage> {
     );
   }
 
-  Widget _cardDeath(String _message) {
+  Widget _cardWin() {
     return Container(
       height: MediaQuery.of(context).size.height * 0.4,
       decoration: BoxDecoration(
@@ -105,7 +97,7 @@ class _DeathPageState extends State<DeathPage> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),
         child: Container(
-          child: Image.asset(_imageMuerte(_message)),
+          child: Image.asset('assets/fondo.jpg'),
         ),
       ),
     );
@@ -122,72 +114,30 @@ class _DeathPageState extends State<DeathPage> {
           color: _color,
           padding: EdgeInsets.all(2),
           child: FlatButton(
-            splashColor: _color,
-            onPressed: () {
-              _redirectToMenu();
-            },
-            child: Text(
-              'Volver a jugar',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: MediaQuery.of(context).size.width * 0.07,
-                color: Colors.black,
-              ),
-            ),
-          ),
+              splashColor: _color,
+              onPressed: () {
+                _redirectToMenu();
+              },
+              child: Container(
+                // color: Colors.blue,
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: Center(
+                    child: AutoSizeText(
+                      "Volver a la pantalla principal",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.06,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ),
+                ),
+              )),
         ),
       ),
     );
-  }
-
-  String _messageMuerte(String message) {
-    switch (message) {
-      case 'menorSalud':
-        return _muerte.menorSalud;
-      case 'menorCarisma':
-        return _muerte.menorCarisma;
-      case 'menorDinero':
-        return _muerte.menorDinero;
-      case 'menorSuerte':
-        return _muerte.menorSuerte;
-      case 'mayorSalud':
-        return _muerte.mayorSalud;
-      case 'mayorCarisma':
-        return _muerte.mayorCarisma;
-      case 'mayorDinero':
-        return _muerte.mayorDinero;
-      case 'mayorSuerte':
-        return _muerte.mayorSuerte;
-      case 'random':
-        return _muerte.random;
-      default:
-        return _muerte.random;
-    }
-  }
-
-  String _imageMuerte(String message) {
-    switch (message) {
-      case 'menorSalud':
-        return _muerte.imageSalud;
-      case 'menorCarisma':
-        return _muerte.imageCarisma;
-      case 'menorDinero':
-        return _muerte.imageDinero;
-      case 'menorSuerte':
-        return _muerte.imageSuerte;
-      case 'mayorSalud':
-        return _muerte.imageSalud;
-      case 'mayorCarisma':
-        return _muerte.imageCarisma;
-      case 'mayorDinero':
-        return _muerte.imageDinero;
-      case 'mayorSuerte':
-        return _muerte.imageSuerte;
-      case 'random':
-        return _muerte.imageRandom;
-      default:
-        return _muerte.imageRandom;
-    }
   }
 
   void _redirectToMenu() {

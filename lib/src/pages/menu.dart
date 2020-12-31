@@ -5,6 +5,8 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'dart:async';
 import 'dart:math';
 
+import 'package:ockams_razor/src/utils/utils.dart';
+
 class MenuPage extends StatefulWidget {
   @override
   _MenuPageState createState() => _MenuPageState();
@@ -13,12 +15,16 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   final _animationDuration = Duration(milliseconds: 800);
   Color _color;
+  bool partida;
 
   @override
   void initState() {
-    super.initState();
+    getPrefsBool('partida').then((value) {
+      partida = value;
+    });
     Timer.periodic(_animationDuration, (timer) => _changeColor());
     _color = Colors.blue;
+    super.initState();
   }
 
   void _changeColor() {
@@ -50,7 +56,6 @@ class _MenuPageState extends State<MenuPage> {
               fit: BoxFit.fill,
             ),
           ),
-
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -79,6 +84,8 @@ class _MenuPageState extends State<MenuPage> {
                   ),
                 ),
                 Divider(),
+                _continuarPartida(),
+                Divider(),
                 AnimatedContainer(
                   duration: _animationDuration,
                   color: _color,
@@ -87,13 +94,13 @@ class _MenuPageState extends State<MenuPage> {
                     // color: Colors.black,
                     splashColor: _color,
                     onPressed: () {
-                      _playGame();
+                      _newGame();
                     },
                     child: Text(
-                      "Jugar",
+                      "Nueva partida",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: MediaQuery.of(context).size.width * 0.1,
+                        fontSize: MediaQuery.of(context).size.width * 0.08,
                         color: Colors.black,
                       ),
                     ),
@@ -114,7 +121,7 @@ class _MenuPageState extends State<MenuPage> {
                       "Como jugar",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: MediaQuery.of(context).size.width * 0.1,
+                        fontSize: MediaQuery.of(context).size.width * 0.08,
                         color: Colors.black,
                       ),
                     ),
@@ -128,7 +135,44 @@ class _MenuPageState extends State<MenuPage> {
     );
   }
 
-  void _playGame() {
+  Widget _continuarPartida() {
+    if (partida == true) {
+      return AnimatedContainer(
+        duration: _animationDuration,
+        color: _color,
+        padding: EdgeInsets.all(2),
+        child: FlatButton(
+          // color: Colors.black,
+          splashColor: _color,
+          onPressed: () {
+            _continueGame();
+          },
+          child: Text(
+            "Continuar partida",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: MediaQuery.of(context).size.width * 0.08,
+              color: Colors.black,
+            ),
+          ),
+        ),
+      );
+    } else {
+      return Text('');
+    }
+  }
+
+  void _newGame() {
+    setPrefsBool('partida', true);
+    setPrefsString('section', 'parte1;1');
+    setPrefsInt('_salud', 50);
+    setPrefsInt('_carisma', 50);
+    setPrefsInt('_dinero', 50);
+    setPrefsInt('_suerte', 50);
+    Navigator.pushNamed(context, 'game');
+  }
+
+  void _continueGame() {
     Navigator.pushNamed(context, 'game');
   }
 
