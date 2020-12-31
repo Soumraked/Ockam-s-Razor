@@ -20,3 +20,13 @@ Future<int> getPrefsInt(String name) async {
   final prefs = await SharedPreferences.getInstance();
   return prefs.getInt(name) ?? 0;
 }
+
+Future<void> setPrefsBool(String name, bool value) async {
+  final prefs = await SharedPreferences.getInstance();
+  prefs.setBool(name, value);
+}
+
+Future<bool> getPrefsBool(String name) async {
+  final prefs = await SharedPreferences.getInstance();
+  return prefs.getBool(name) ?? false;
+}

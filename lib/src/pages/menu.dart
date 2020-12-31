@@ -12,13 +12,12 @@ class MenuPage extends StatefulWidget {
 
 class _MenuPageState extends State<MenuPage> {
   final _animationDuration = Duration(milliseconds: 800);
-  Timer _timer;
   Color _color;
 
   @override
   void initState() {
     super.initState();
-    _timer = Timer.periodic(_animationDuration, (timer) => _changeColor());
+    Timer.periodic(_animationDuration, (timer) => _changeColor());
     _color = Colors.blue;
   }
 

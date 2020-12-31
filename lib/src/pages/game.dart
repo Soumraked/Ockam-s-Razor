@@ -8,9 +8,9 @@ import 'package:ockams_razor/src/pages/menu.dart';
 import 'package:ockams_razor/src/utils/utils.dart';
 
 import 'package:ockams_razor/src/providers/dialogs.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'dart:math';
 
 class Game extends StatefulWidget {
   @override
@@ -23,7 +23,6 @@ class _GameState extends State<Game> {
   // int _cardNum = 3;
   CardController _controllerCard = new CardController();
   String _direction = 'None';
-  int _currentCard = 0;
   double _salud = 50;
   double _carisma = 50;
   double _dinero = 50;
@@ -32,38 +31,65 @@ class _GameState extends State<Game> {
   bool _carismaStatus = false;
   bool _dineroStatus = false;
   bool _suerteStatus = false;
-  String _saludSigno = "";
-  String _carismaSigno = "";
-  String _dineroSigno = "";
-  String _suerteSigno = "";
+  String _saludSigno = '';
+  String _carismaSigno = '';
+  String _dineroSigno = '';
+  String _suerteSigno = '';
   List<Dialogo> _dialogos = new List();
   List<Dialogo> _dialogo = new List();
 
+  var random = new Random();
+  int _randomDeath;
+  int _limit = 100000;
+  String _message = 'Desliza para ver las opciones.';
+
   @override
   void initState() {
-    super.initState();
-
-    // getPrefsInt('CurrentCard').then((value) {
-    //   _currentCard = value;
-    //   _appendImages10();
-    // });
-
-    cargaDialogos.cargarData().then((value) {
-      setState(() {
-        _dialogos = value;
-        _dialogo.add(value[0]);
-        _dialogo.add(dialogoFondo);
-        _dialogo.add(dialogoFondo);
-        // _dialogo.add(dialogoCarga);
-        _dialogos.removeAt(0);
+    getPrefsString('section').then((v) {
+      String _section = v.split(';')[0] == '' ? 'parte1' : v.split(';')[0];
+      String _key = v.split(';')[1] == '' ? '1' : v.split(';')[1];
+      CargaDialogos(_section, _key).cargarData(_section, _key).then((value) {
+        setState(() {
+          _dialogos = value;
+          _dialogo.add(value[0]);
+          _dialogo.add(dialogoFondo);
+          _dialogo.add(dialogoFondo);
+          // _dialogo.add(dialogoCarga);
+          _dialogos.removeAt(0);
+        });
       });
     });
+    getPrefsInt('_salud').then((value) {
+      _salud = value == 0 ? 50.0 : value.toDouble();
+    });
+    getPrefsInt('_carisma').then((value) {
+      _carisma = value == 0 ? 50.0 : value.toDouble();
+    });
+    getPrefsInt('_dinero').then((value) {
+      _dinero = value == 0 ? 50.0 : value.toDouble();
+    });
+    getPrefsInt('_suerte').then((value) {
+      _suerte = value == 0 ? 50.0 : value.toDouble();
+    });
+
+    _randomDeath = random.nextInt(_limit);
+    super.initState();
   }
 
   @override
   void dispose() {
+    setPrefsString('section', 'parte1;${_dialogo[0].key}');
+    setPrefsInt('_salud', _salud.toInt());
+    setPrefsInt('_carisma', _carisma.toInt());
+    setPrefsInt('_dinero', _dinero.toInt());
+    setPrefsInt('_suerte', _suerte.toInt());
+
+    // setPrefsString('section', 'parte1;1');
+    // setPrefsInt('_salud', 50);
+    // setPrefsInt('_carisma', 50);
+    // setPrefsInt('_dinero', 50);
+    // setPrefsInt('_suerte', 50);
     super.dispose();
-    setPrefsInt('CurrentCard', _currentCard);
   }
 
   @override
@@ -132,13 +158,13 @@ class _GameState extends State<Game> {
             if (_dialogo[0].izquierdaSalud != 0.0) {
               _saludStatus = true;
             }
-            if (_dialogo[0].izquierdaReputacion != 0.0) {
+            if (_dialogo[0].izquierdaCarisma != 0.0) {
               _carismaStatus = true;
             }
             if (_dialogo[0].izquierdaDinero != 0.0) {
               _dineroStatus = true;
             }
-            if (_dialogo[0].izquierdaSantidad != 0.0) {
+            if (_dialogo[0].izquierdaSuerte != 0.0) {
               _suerteStatus = true;
             }
           } else if (align.x > 0) {
@@ -147,13 +173,13 @@ class _GameState extends State<Game> {
             if (_dialogo[0].derechaSalud != 0.0) {
               _saludStatus = true;
             }
-            if (_dialogo[0].derechaReputacion != 0.0) {
+            if (_dialogo[0].derechaCarisma != 0.0) {
               _carismaStatus = true;
             }
             if (_dialogo[0].derechaDinero != 0.0) {
               _dineroStatus = true;
             }
-            if (_dialogo[0].derechaSantidad != 0.0) {
+            if (_dialogo[0].derechaSuerte != 0.0) {
               _suerteStatus = true;
             }
           } else {
@@ -178,25 +204,20 @@ class _GameState extends State<Game> {
           _dineroStatus = false;
           _suerteStatus = false;
 
-          print(_saludStatus);
-          print(_carismaStatus);
-          print(_dineroStatus);
-          print(_suerteStatus);
-
           if (orientation == CardSwipeOrientation.LEFT) {
             _salud += _dialogo[0].izquierdaSalud;
-            _carisma += _dialogo[0].izquierdaReputacion;
+            _carisma += _dialogo[0].izquierdaCarisma;
             _dinero += _dialogo[0].izquierdaDinero;
-            _suerte += _dialogo[0].izquierdaSantidad;
+            _suerte += _dialogo[0].izquierdaSuerte;
 
             _saludSigno = _dialogo[0].izquierdaSalud > 0
                 ? '+'
                 : _dialogo[0].izquierdaSalud < 0
                     ? '-'
                     : '';
-            _carismaSigno = _dialogo[0].izquierdaReputacion > 0
+            _carismaSigno = _dialogo[0].izquierdaCarisma > 0
                 ? '+'
-                : _dialogo[0].izquierdaReputacion < 0
+                : _dialogo[0].izquierdaCarisma < 0
                     ? '-'
                     : '';
             _dineroSigno = _dialogo[0].izquierdaDinero > 0
@@ -204,27 +225,27 @@ class _GameState extends State<Game> {
                 : _dialogo[0].izquierdaDinero < 0
                     ? '-'
                     : '';
-            _suerteSigno = _dialogo[0].izquierdaSantidad > 0
+            _suerteSigno = _dialogo[0].izquierdaSuerte > 0
                 ? '+'
-                : _dialogo[0].izquierdaSantidad < 0
+                : _dialogo[0].izquierdaSuerte < 0
                     ? '-'
                     : '';
           }
 
           if (orientation == CardSwipeOrientation.RIGHT) {
             _salud += _dialogo[0].derechaSalud;
-            _carisma += _dialogo[0].derechaReputacion;
+            _carisma += _dialogo[0].derechaCarisma;
             _dinero += _dialogo[0].derechaDinero;
-            _suerte += _dialogo[0].derechaSantidad;
+            _suerte += _dialogo[0].derechaSuerte;
 
             _saludSigno = _dialogo[0].derechaSalud > 0
                 ? '+'
                 : _dialogo[0].derechaSalud < 0
                     ? '-'
                     : '';
-            _carismaSigno = _dialogo[0].derechaReputacion > 0
+            _carismaSigno = _dialogo[0].derechaCarisma > 0
                 ? '+'
-                : _dialogo[0].derechaReputacion < 0
+                : _dialogo[0].derechaCarisma < 0
                     ? '-'
                     : '';
             _dineroSigno = _dialogo[0].derechaDinero > 0
@@ -232,11 +253,31 @@ class _GameState extends State<Game> {
                 : _dialogo[0].derechaDinero < 0
                     ? '-'
                     : '';
-            _suerteSigno = _dialogo[0].derechaSantidad > 0
+            _suerteSigno = _dialogo[0].derechaSuerte > 0
                 ? '+'
-                : _dialogo[0].derechaSantidad < 0
+                : _dialogo[0].derechaSuerte < 0
                     ? '-'
                     : '';
+          }
+
+          if (_salud <= 0) {
+            _redirectDeath('menorSalud');
+          } else if (_carisma.toInt() <= 0) {
+            _redirectDeath('menorCarisma');
+          } else if (_dinero.toInt() <= 0) {
+            _redirectDeath('menorDinero');
+          } else if (_suerte.toInt() <= 0) {
+            _redirectDeath('menorSuerte');
+          } else if (_salud.toInt() >= 100) {
+            _redirectDeath('mayorSalud');
+          } else if (_carisma.toInt() >= 100) {
+            _redirectDeath('mayorCarisma');
+          } else if (_dinero.toInt() >= 100) {
+            _redirectDeath('mayorDinero');
+          } else if (_suerte.toInt() >= 100) {
+            _redirectDeath('mayorSuerte');
+          } else if (_randomDeath == random.nextInt(_limit)) {
+            _redirectDeath('random');
           }
 
           if (orientation == CardSwipeOrientation.LEFT ||
@@ -246,8 +287,10 @@ class _GameState extends State<Game> {
             _dialogo.removeAt(0);
             _dialogo.removeAt(0);
             timeTransition();
-            //_dialogos.removeAt(0);
+            if (_dialogos.length == 0) {}
           }
+
+          print('${_dialogos.length}');
 
           setState(() {});
         },
@@ -262,7 +305,6 @@ class _GameState extends State<Game> {
 
   transition() {
     if (_dialogos.isEmpty) {
-      _dialogos.removeAt(0);
       rellenarDialogos();
     } else {
       _dialogo.insert(0, dialogoFondo);
@@ -272,10 +314,12 @@ class _GameState extends State<Game> {
     setState(() {});
   }
 
-  rellenarDialogos() async {
-    cargaDialogos.cargarData().then((value) {
+  rellenarDialogos() {
+    _dialogo = new List();
+    CargaDialogos('parte1', '1').cargarData('parte1', '1').then((value) {
       _dialogos = value;
       _dialogo.add(value[0]);
+      _dialogo.add(dialogoFondo);
       _dialogo.add(dialogoFondo);
       _dialogos.removeAt(0);
       setState(() {});
@@ -303,7 +347,7 @@ class _GameState extends State<Game> {
         width: MediaQuery.of(context).size.width * 0.9,
         child: Center(
           child: AutoSizeText(
-            '${_dialogo.length > 0 && _direction == "Left" ? _dialogo[0].izquierdaDialogo : _dialogo.length > 0 && _direction == "Rigth" ? _dialogo[0].derechaDialogo : "Desliza para ver las opciones."}',
+            '${_dialogo.length > 0 && _direction == 'Left' ? _dialogo[0].izquierdaDialogo : _dialogo.length > 0 && _direction == 'Rigth' ? _dialogo[0].derechaDialogo : _message}',
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: MediaQuery.of(context).size.width * 0.06,
@@ -318,7 +362,7 @@ class _GameState extends State<Game> {
   Widget _question() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
-      child: _dialogo.isEmpty ? Text("") : _animation(),
+      child: _dialogo.isEmpty ? Text('') : _animation(),
     );
   }
 
@@ -444,91 +488,91 @@ class _GameState extends State<Game> {
     );
   }
 
-  Widget _statusNormal() {
-    return Center(
-      child: Column(
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                '${_salud.round()}%',
-                style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
-                    color: Colors.white),
-              ),
-              Text('${_carisma.round()}%',
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
-                    color: Colors.white,
-                  )),
-              Text('${_dinero.round()}%',
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
-                    color: Colors.white,
-                  )),
-              Text(
-                '${_suerte.round()}%',
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.05,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.healing,
-                size: MediaQuery.of(context).size.width * 0.08,
-                color: _saludStatus
-                    ? Colors.grey
-                    : _saludSigno == '+'
-                        ? Colors.green
-                        : _saludSigno == '-'
-                            ? Colors.red
-                            : Colors.white,
-              ),
-              Icon(
-                Icons.child_care,
-                size: MediaQuery.of(context).size.width * 0.08,
-                color: _carismaStatus
-                    ? Colors.grey
-                    : _carismaSigno == '+'
-                        ? Colors.green
-                        : _carismaSigno == '-'
-                            ? Colors.red
-                            : Colors.white,
-              ),
-              Icon(
-                Icons.monetization_on_outlined,
-                size: MediaQuery.of(context).size.width * 0.08,
-                color: _dineroStatus
-                    ? Colors.grey
-                    : _dineroSigno == '+'
-                        ? Colors.green
-                        : _dineroSigno == '-'
-                            ? Colors.red
-                            : Colors.white,
-              ),
-              Icon(
-                Icons.auto_awesome,
-                size: MediaQuery.of(context).size.width * 0.08,
-                color: _suerteStatus
-                    ? Colors.grey
-                    : _suerteSigno == '+'
-                        ? Colors.green
-                        : _suerteSigno == '-'
-                            ? Colors.red
-                            : Colors.white,
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _statusNormal() {
+  //   return Center(
+  //     child: Column(
+  //       children: [
+  //         Row(
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: [
+  //             Text(
+  //               '${_salud.round()}%',
+  //               style: TextStyle(
+  //                   fontSize: MediaQuery.of(context).size.width * 0.05,
+  //                   color: Colors.white),
+  //             ),
+  //             Text('${_carisma.round()}%',
+  //                 style: TextStyle(
+  //                   fontSize: MediaQuery.of(context).size.width * 0.05,
+  //                   color: Colors.white,
+  //                 )),
+  //             Text('${_dinero.round()}%',
+  //                 style: TextStyle(
+  //                   fontSize: MediaQuery.of(context).size.width * 0.05,
+  //                   color: Colors.white,
+  //                 )),
+  //             Text(
+  //               '${_suerte.round()}%',
+  //               style: TextStyle(
+  //                 fontSize: MediaQuery.of(context).size.width * 0.05,
+  //                 color: Colors.white,
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //         Row(
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: [
+  //             Icon(
+  //               Icons.healing,
+  //               size: MediaQuery.of(context).size.width * 0.08,
+  //               color: _saludStatus
+  //                   ? Colors.grey
+  //                   : _saludSigno == '+'
+  //                       ? Colors.green
+  //                       : _saludSigno == '-'
+  //                           ? Colors.red
+  //                           : Colors.white,
+  //             ),
+  //             Icon(
+  //               Icons.child_care,
+  //               size: MediaQuery.of(context).size.width * 0.08,
+  //               color: _carismaStatus
+  //                   ? Colors.grey
+  //                   : _carismaSigno == '+'
+  //                       ? Colors.green
+  //                       : _carismaSigno == '-'
+  //                           ? Colors.red
+  //                           : Colors.white,
+  //             ),
+  //             Icon(
+  //               Icons.monetization_on_outlined,
+  //               size: MediaQuery.of(context).size.width * 0.08,
+  //               color: _dineroStatus
+  //                   ? Colors.grey
+  //                   : _dineroSigno == '+'
+  //                       ? Colors.green
+  //                       : _dineroSigno == '-'
+  //                           ? Colors.red
+  //                           : Colors.white,
+  //             ),
+  //             Icon(
+  //               Icons.auto_awesome,
+  //               size: MediaQuery.of(context).size.width * 0.08,
+  //               color: _suerteStatus
+  //                   ? Colors.grey
+  //                   : _suerteSigno == '+'
+  //                       ? Colors.green
+  //                       : _suerteSigno == '-'
+  //                           ? Colors.red
+  //                           : Colors.white,
+  //             ),
+  //           ],
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _backButton() {
     return FloatingActionButton(
@@ -560,5 +604,13 @@ class _GameState extends State<Game> {
         ),
       ),
     );
+  }
+
+  void _redirectDeath(String message) {
+    _salud = 50;
+    _carisma = 50;
+    _dinero = 50;
+    _suerte = 50;
+    Navigator.pushNamed(context, 'death', arguments: message);
   }
 }
