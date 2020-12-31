@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:ockams_razor/src/utils/utils.dart';
+
 class InitAnimations extends StatefulWidget {
   @override
   _InitAnimationsState createState() => _InitAnimationsState();
@@ -10,7 +12,15 @@ class _InitAnimationsState extends State<InitAnimations> {
   @override
   void initState() {
     super.initState();
-    startTime();
+    // setPrefsBool('initAnimation', false);
+    getPrefsBool('initAnimation').then((value) {
+      // true => ya se mostró, false => aún no se muestra
+      if (value) {
+        startTimeMenu();
+      } else {
+        startTimeAnimation();
+      }
+    });
   }
 
   @override
@@ -48,12 +58,21 @@ class _InitAnimationsState extends State<InitAnimations> {
     super.dispose();
   }
 
-  startTime() async {
+  startTimeMenu() async {
     var duration = new Duration(seconds: 3);
     return new Timer(duration, route);
   }
 
   route() {
     Navigator.pushNamed(context, 'menu');
+  }
+
+  startTimeAnimation() async {
+    var duration = new Duration(seconds: 3);
+    return new Timer(duration, routeAnimation);
+  }
+
+  routeAnimation() {
+    Navigator.pushNamed(context, 'animation');
   }
 }

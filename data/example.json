@@ -1,5 +1,5 @@
 {
-  "historia":{
+  "parte1":{
     "1":{
       "personaje":"Principal",
       "imagen":"characters/1.jpg",
@@ -200,7 +200,6 @@
         "suerte":"+10"
       }
     },
-      
     "11":{
       "personaje":"Doctora",
       "imagen":"characters/2.jpg",
