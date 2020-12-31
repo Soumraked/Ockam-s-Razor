@@ -220,5 +220,129 @@
         "suerte":"+10"
       }
     }
+  },
+  "parte2":{
+    "1":{
+      "personaje":"Principal",
+      "imagen":"characters/1.jpg",
+      "dialogo":"...Miras a una extraña criatura observandote",
+      "aleatorio":"False",
+      "izquierda":{
+        "dialogo": "¿Seymour?",
+        "salud":"+1",
+        "dinero":"-1",
+        "carisma":"0",
+        "suerte":"0"
+      },
+      "derecha":{
+        "dialogo": "¿Qué diablos?... ¿¿Seymour!??",
+        "salud":"-1",
+        "dinero":"+1",
+        "carisma":"0",
+        "suerte":"0"
+      }
+    },
+    "2":{
+      "personaje":"Seymour",
+      "imagen":"characters/2.jpg",
+      "dialogo":"¿Efectivamente, ese es mi nombre?",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "*GRITAS!!!!!!*",
+        "salud":"+1",
+        "dinero":"0",
+        "carisma":"0",
+        "suerte":"+1"
+      },
+      "derecha":{
+        "dialogo": "Meh... ahora los perros hablan ... AAAAAAAAAAAAAAAAAAA!!",
+        "salud":"+1",
+        "dinero":"+1",
+        "carisma":"+1",
+        "suerte":"+2"
+      }
+    },
+    "3":{
+      "personaje":"Seymour",
+      "imagen":"characters/3.jpg",
+      "dialogo":"Tranquilízate estamos en el año 3020, solo que yo Sali un poco antes debido a otros motivos...",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "¿Qué motivos?",
+        "salud":"+1",
+        "dinero":"+1",
+        "carisma":"-1",
+        "suerte":"-1"
+      },
+      "derecha":{
+        "dialogo": "Me da igual saquenme de esta capsula luego *ashus*",
+        "salud":"-1",
+        "dinero":"-1",
+        "carisma":"+1",
+        "suerte":"+1"
+      }
+    }
+  },
+  "parte3":{
+    "1":{
+      "personaje":"Principal",
+      "imagen":"characters/1.jpg",
+      "dialogo":"...Miras a una extraña criatura observandote",
+      "aleatorio":"False",
+      "izquierda":{
+        "dialogo": "¿Seymour?",
+        "salud":"+1",
+        "dinero":"-1",
+        "carisma":"0",
+        "suerte":"0"
+      },
+      "derecha":{
+        "dialogo": "¿Qué diablos?... ¿¿Seymour!??",
+        "salud":"-1",
+        "dinero":"+1",
+        "carisma":"0",
+        "suerte":"0"
+      }
+    },
+    "2":{
+      "personaje":"Seymour",
+      "imagen":"characters/2.jpg",
+      "dialogo":"¿Efectivamente, ese es mi nombre?",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "*GRITAS!!!!!!*",
+        "salud":"+1",
+        "dinero":"0",
+        "carisma":"0",
+        "suerte":"+1"
+      },
+      "derecha":{
+        "dialogo": "Meh... ahora los perros hablan ... AAAAAAAAAAAAAAAAAAA!!",
+        "salud":"+1",
+        "dinero":"+1",
+        "carisma":"+1",
+        "suerte":"+2"
+      }
+    },
+    "3":{
+      "personaje":"Seymour",
+      "imagen":"characters/3.jpg",
+      "dialogo":"Tranquilízate estamos en el año 3020, solo que yo Sali un poco antes debido a otros motivos...",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo": "¿Qué motivos?",
+        "salud":"+1",
+        "dinero":"+1",
+        "carisma":"-1",
+        "suerte":"-1"
+      },
+      "derecha":{
+        "dialogo": "Me da igual saquenme de esta capsula luego *ashus*",
+        "salud":"-1",
+        "dinero":"-1",
+        "carisma":"+1",
+        "suerte":"+1"
+      }
+    }
   }
 }
