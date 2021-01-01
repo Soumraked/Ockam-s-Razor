@@ -89,44 +89,14 @@ class _InfoGameState extends State<InfoGame> {
 
   Widget _image3() {
     return Container(
-      color: Colors.black,
-      child: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 30,
+        decoration: BoxDecoration(
+            color: Color.fromRGBO(12, 12, 12, 1),
+            image: DecorationImage(
+              image: AssetImage("assets/card_animation.gif"),
+              fit: BoxFit.fill,
+            ),
           ),
-          Text(
-            "Para jugar en la próxima pantalla, presiona\n sobre la tarjeta y delizala a la \nderecha/izquiera para seleccionar la \nalternativa que te paresca correcta.",
-            style: TextStyle(fontSize: 16.0, color: Colors.white),
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Image.asset("assets/card_animation.gif"),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            'Order Success',
-            style: TextStyle(
-                fontSize: 22.0,
-                color: Colors.black,
-                fontWeight: FontWeight.bold),
-            overflow: TextOverflow.ellipsis,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            "Now, you're connect directly\nwith your order, lets check the detail\nJust wait your service here",
-            style: TextStyle(fontSize: 16.0, color: Colors.white),
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+         
     );
   }
 }
