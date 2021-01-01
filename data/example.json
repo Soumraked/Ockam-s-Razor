@@ -22,7 +22,7 @@
     },
     "2":{
       "personaje":"Seymour",
-      "imagen":"characters/2.jpg",
+      "imagen":"characters/1.jpg",
       "dialogo":"¿Efectivamente, ese es mi nombre?",
       "aleatorio":"false",
       "izquierda":{
