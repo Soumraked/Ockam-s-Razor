@@ -37,7 +37,6 @@ class _AnimationInitState extends State<AnimationInit> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        // child: omitir(),
         child: Container(
           child: FutureBuilder(
             future: _initializeVideoPlayerFuture,
@@ -63,33 +62,6 @@ class _AnimationInitState extends State<AnimationInit> {
           route();
         },
         child: Icon(Icons.arrow_forward_ios),
-      ),
-    );
-  }
-
-  Widget omitir() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(12, 12, 12, 1),
-        image: DecorationImage(
-          image: AssetImage("assets/7dDt.gif"),
-          fit: BoxFit.fill,
-        ),
-      ),
-      child: Center(
-        child: FlatButton(
-          onPressed: () {
-            route();
-          },
-          child: Text(
-            "Omitir intro",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: MediaQuery.of(context).size.width * 0.1,
-              color: Colors.white,
-            ),
-          ),
-        ),
       ),
     );
   }
