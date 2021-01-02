@@ -15,13 +15,9 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   final _animationDuration = Duration(milliseconds: 800);
   Color _color;
-  bool partida;
 
   @override
   void initState() {
-    getPrefsBool('partida').then((value) {
-      partida = value;
-    });
     Timer.periodic(_animationDuration, (timer) => _changeColor());
     _color = Colors.blue;
     super.initState();
@@ -136,7 +132,7 @@ class _MenuPageState extends State<MenuPage> {
   }
 
   Widget _continuarPartida() {
-    if (partida == true) {
+    if (ModalRoute.of(context).settings.arguments) {
       return AnimatedContainer(
         duration: _animationDuration,
         color: _color,

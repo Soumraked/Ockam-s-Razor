@@ -147,6 +147,6 @@ class _WinPageState extends State<WinPage> {
     setPrefsInt('_carisma', 50);
     setPrefsInt('_dinero', 50);
     setPrefsInt('_suerte', 50);
-    Navigator.pushNamed(context, 'menu');
+    Navigator.pushNamed(context, '/');
   }
 }

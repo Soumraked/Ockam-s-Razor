@@ -29,9 +29,7 @@ class _InfoGameState extends State<InfoGame> {
         child: Icon(Icons.arrow_back),
         backgroundColor: Color.fromARGB(221, 160, 54, 20),
         onPressed: () {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => MenuPage())
-          );
+          Navigator.pushNamed(context, '/');
         },
       ),
     );
@@ -47,14 +45,13 @@ class _InfoGameState extends State<InfoGame> {
   Widget _image1() {
     return Container(
       decoration: BoxDecoration(
-            color: Color.fromRGBO(12, 12, 12, 1),
-            image: DecorationImage(
-              image: AssetImage("assets/7dDt.gif"),
-              fit: BoxFit.fill,
-            ),
-          ),
+        color: Color.fromRGBO(12, 12, 12, 1),
+        image: DecorationImage(
+          image: AssetImage("assets/7dDt.gif"),
+          fit: BoxFit.fill,
+        ),
+      ),
       child: Column(
-        
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           CircleAvatar(
@@ -80,12 +77,10 @@ class _InfoGameState extends State<InfoGame> {
                   borderRadius: BorderRadius.circular(20.0)),
               color: Colors.white,
               child: Container()),
-          
         ],
       ),
     );
   }
-
 
   Widget _image3() {
     return Container(

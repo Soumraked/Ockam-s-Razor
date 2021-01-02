@@ -37,7 +37,7 @@ class _GameState extends State<Game> {
   String _suerteSigno = '';
   List<Dialogo> _dialogos = new List();
   List<Dialogo> _dialogo = new List();
-  List<String> _partes = ['parte1', 'parte2', 'parte3', 'win'];
+  List<String> _partes = ['parte1', 'win'];
   String _parte;
 
   var random = new Random();
@@ -488,100 +488,13 @@ class _GameState extends State<Game> {
     );
   }
 
-  // Widget _statusNormal() {
-  //   return Center(
-  //     child: Column(
-  //       children: [
-  //         Row(
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: [
-  //             Text(
-  //               '${_salud.round()}%',
-  //               style: TextStyle(
-  //                   fontSize: MediaQuery.of(context).size.width * 0.05,
-  //                   color: Colors.white),
-  //             ),
-  //             Text('${_carisma.round()}%',
-  //                 style: TextStyle(
-  //                   fontSize: MediaQuery.of(context).size.width * 0.05,
-  //                   color: Colors.white,
-  //                 )),
-  //             Text('${_dinero.round()}%',
-  //                 style: TextStyle(
-  //                   fontSize: MediaQuery.of(context).size.width * 0.05,
-  //                   color: Colors.white,
-  //                 )),
-  //             Text(
-  //               '${_suerte.round()}%',
-  //               style: TextStyle(
-  //                 fontSize: MediaQuery.of(context).size.width * 0.05,
-  //                 color: Colors.white,
-  //               ),
-  //             ),
-  //           ],
-  //         ),
-  //         Row(
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: [
-  //             Icon(
-  //               Icons.healing,
-  //               size: MediaQuery.of(context).size.width * 0.08,
-  //               color: _saludStatus
-  //                   ? Colors.grey
-  //                   : _saludSigno == '+'
-  //                       ? Colors.green
-  //                       : _saludSigno == '-'
-  //                           ? Colors.red
-  //                           : Colors.white,
-  //             ),
-  //             Icon(
-  //               Icons.child_care,
-  //               size: MediaQuery.of(context).size.width * 0.08,
-  //               color: _carismaStatus
-  //                   ? Colors.grey
-  //                   : _carismaSigno == '+'
-  //                       ? Colors.green
-  //                       : _carismaSigno == '-'
-  //                           ? Colors.red
-  //                           : Colors.white,
-  //             ),
-  //             Icon(
-  //               Icons.monetization_on_outlined,
-  //               size: MediaQuery.of(context).size.width * 0.08,
-  //               color: _dineroStatus
-  //                   ? Colors.grey
-  //                   : _dineroSigno == '+'
-  //                       ? Colors.green
-  //                       : _dineroSigno == '-'
-  //                           ? Colors.red
-  //                           : Colors.white,
-  //             ),
-  //             Icon(
-  //               Icons.auto_awesome,
-  //               size: MediaQuery.of(context).size.width * 0.08,
-  //               color: _suerteStatus
-  //                   ? Colors.grey
-  //                   : _suerteSigno == '+'
-  //                       ? Colors.green
-  //                       : _suerteSigno == '-'
-  //                           ? Colors.red
-  //                           : Colors.white,
-  //             ),
-  //           ],
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
-
   Widget _backButton() {
     return FloatingActionButton(
       mini: true,
       child: Icon(Icons.arrow_back),
       backgroundColor: Color.fromARGB(221, 160, 54, 20),
       onPressed: () {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => MenuPage()));
+        Navigator.pushNamed(context, '/');
       },
     );
   }
