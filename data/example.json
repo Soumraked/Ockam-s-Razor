@@ -42,11 +42,11 @@
     },
     "3":{
       "personaje":"Seymour",
-      "imagen":"characters/3.jpg",
-      "dialogo":"Tranquilízate estamos en el año 3020, solo que yo Sali un poco antes debido a otros motivos...",
+      "imagen":"characters/1.jpg",
+      "dialogo":"Tranquilízate estamos en el año 3020, solo que yo salí un poco antes debido a otros motivos...",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "¿Qué motivos?",
+        "dialogo": "PORFAVOR SAQUEN LA BRUMA NEGRA QUE NO VEO AL PERRO",
         "salud":"+10",
         "dinero":"+10",
         "carisma":"-10",
@@ -62,11 +62,11 @@
     },
     "4":{
       "personaje":"Doctora",
-      "imagen":"characters/1.jpg",
+      "imagen":"characters/DocHablando1.jpg",
       "dialogo":"Disculpen por la interrupción pero déjame decirte que ha cambiado en los años que no estuviste, pero primero deja añadirte esta barra salud *Pinchazo*",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "¿Q-Q-QUE?",
+        "dialogo": "¿Q-Q-QUE? ENFERMERA JO.....???",
         "salud":"+10",
         "dinero":"-15",
         "carisma":"0",
@@ -82,7 +82,7 @@
     },
     "5":{
       "personaje":"Principal",
-      "imagen":"characters/2.jpg",
+      "imagen":"characters/Black.jpg",
       "dialogo":" ¿Qué es esto?... Es como un videojuego ¿Por qué cada vez que hago algo me sube o baja la vida? ¿¡QUE ES ESA BARRA QUE TENGO ENCIMA!?",
       "aleatorio":"false",
       "izquierda":{
@@ -102,11 +102,11 @@
     },
     "6":{
       "personaje":"Doctora",
-      "imagen":"characters/3.jpg",
+      "imagen":"characters/DocHablando2.jpg",
       "dialogo":"En el futuro si no eres útil o si no tiendes a ser compasivo en tus decisiones o con la sociedad en base a tus acciones... te bajara la vida y morirás o tendrás menos diálogos disponibles en caso de que tu carisma sea baja",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "¿Menos dialogos? SABIA QUE ERA UN VIDEOJUEGO",
+        "dialogo": "¿Menos diálogos? SABIA QUE ERA UN VIDEOJUEGO",
         "salud":"+10",
         "dinero":"+10",
         "carisma":"-10",
@@ -122,11 +122,11 @@
     },
     "7":{
       "personaje":"Seymour",
-      "imagen":"characters/2.jpg",
+      "imagen":"characters/seymourhablando.jpg",
       "dialogo":"Así es queridísimo amigo el futuro… es un poco diferente",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "Continuar",
+        "dialogo": "Que te ha pasado...",
         "salud":"+10",
         "dinero":"+10",
         "carisma":"-10",
@@ -142,8 +142,8 @@
     },
     "8":{
       "personaje":"Seymour",
-      "imagen":"characters/2.jpg",
-      "dialogo":"...",
+      "imagen":"characters/sindescripcion.jpg",
+      "dialogo":"*se lame sus partes*",
       "aleatorio":"false",
       "izquierda":{
         "dialogo": "Hay cosas que no cambian...",
@@ -162,11 +162,11 @@
     },
     "9":{
       "personaje":"Seymour",
-      "imagen":"characters/2.jpg",
+      "imagen":"characters/seymourhablando.jpg",
       "dialogo":"Discúlpenme, a pesar de que llevo diez años aquí aun no me acostumbro",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "¿DIEZ AÑOS?",
+        "dialogo": "¿DIEZ AÑOS? Y porque demonios lo dices tan serio",
         "salud":"+10",
         "dinero":"+10",
         "carisma":"-10",
@@ -181,8 +181,8 @@
       }
     },
     "10":{
-      "personaje":"Don Seymour",
-      "imagen":"characters/2.jpg",
+      "personaje":"Seymour",
+      "imagen":"characters/seymourhablandofumando.jpg",
       "dialogo":"Ah si, y disculpa mi nombre ya no es Seymour, ahora me conocen como Don Seymourtron",
       "aleatorio":"false",
       "izquierda":{
@@ -200,9 +200,10 @@
         "suerte":"+10"
       }
     },
+      
     "11":{
       "personaje":"Doctora",
-      "imagen":"characters/2.jpg",
+      "imagen":"characters/DoctoraFelizHablando1.jpg",
       "dialogo":"*Ejem* Muy bien querido, tu aventura está a punto de comenzar ahora elije un poke.. digo ¡Sal con tu mascota y conoce el futuro!",
       "aleatorio":"false",
       "izquierda":{
@@ -219,130 +220,308 @@
         "carisma":"+10",
         "suerte":"+10"
       }
-    }
-  },
-  "parte2":{
-    "1":{
-      "personaje":"Principal",
-      "imagen":"characters/1.jpg",
-      "dialogo":"...Miras a una extraña criatura observandote",
-      "aleatorio":"False",
+    },
+    "12":{
+      "personaje":"Black",
+      "imagen":"characters/Puertaop1.jpg",
+      "dialogo":"*Estas en frente de una puerta y tus miedos se aceleran*",
+      "aleatorio":"false",
       "izquierda":{
-        "dialogo": "¿Seymour?",
+        "dialogo":"La intentas abrir",
         "salud":"+1",
-        "dinero":"-1",
-        "carisma":"0",
-        "suerte":"0"
+         "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
       },
       "derecha":{
-        "dialogo": "¿Qué diablos?... ¿¿Seymour!??",
+        "dialogo":"La abres pero con miedo",
         "salud":"-1",
-        "dinero":"+1",
-        "carisma":"0",
-        "suerte":"0"
-      }
-    },
-    "2":{
-      "personaje":"Seymour",
-      "imagen":"characters/2.jpg",
-      "dialogo":"¿Efectivamente, ese es mi nombre?",
-      "aleatorio":"false",
-      "izquierda":{
-        "dialogo": "*GRITAS!!!!!!*",
-        "salud":"+1",
-        "dinero":"0",
-        "carisma":"0",
-        "suerte":"+1"
-      },
-      "derecha":{
-        "dialogo": "Meh... ahora los perros hablan ... AAAAAAAAAAAAAAAAAAA!!",
-        "salud":"+1",
-        "dinero":"+1",
-        "carisma":"+1",
-        "suerte":"+2"
-      }
-    },
-    "3":{
-      "personaje":"Seymour",
-      "imagen":"characters/3.jpg",
-      "dialogo":"Tranquilízate estamos en el año 3020, solo que yo Sali un poco antes debido a otros motivos...",
-      "aleatorio":"false",
-      "izquierda":{
-        "dialogo": "¿Qué motivos?",
-        "salud":"+1",
-        "dinero":"+1",
+        "dinero":"+0",
         "carisma":"-1",
         "suerte":"-1"
-      },
-      "derecha":{
-        "dialogo": "Me da igual saquenme de esta capsula luego *ashus*",
-        "salud":"-1",
-        "dinero":"-1",
-        "carisma":"+1",
-        "suerte":"+1"
       }
-    }
-  },
-  "parte3":{
-    "1":{
-      "personaje":"Principal",
-      "imagen":"characters/1.jpg",
-      "dialogo":"...Miras a una extraña criatura observandote",
-      "aleatorio":"False",
+    },
+    "13":{
+      "personaje":"Don Seymour",
+      "imagen":"characters/seymour.jpg",
+      "dialogo":"¡No seas gallina ya apresurate!, *te empuja*",
+      "aleatorio":"false",
       "izquierda":{
-        "dialogo": "¿Seymour?",
-        "salud":"+1",
-        "dinero":"-1",
-        "carisma":"0",
-        "suerte":"0"
+        "dialogo":"EH MALDITO PERRO ASQUEROSO",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"-10",
+        "suerte":"+10"
       },
       "derecha":{
-        "dialogo": "¿Qué diablos?... ¿¿Seymour!??",
-        "salud":"-1",
-        "dinero":"+1",
-        "carisma":"0",
+        "dialogo":"GRACIAS SEYMOUR PARECE QUE 2000 AÑOS TE HAN VUELTO UN CABRONAZO",
+        "salud":"-10",
+        "dinero":"-10",
+        "carisma":"-10",
+        "suerte":"+10"
+      }
+    },
+    "14":{
+      "personaje":"Don Seymour",
+      "imagen":"characters/seymour.jpg",
+      "dialogo":"Callado niño, ahora yo mando y levanta la cabeza",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo":"Okey okey tranquilizate",
+        "salud":"+10",
+        "dinero":"+10",
+        "carisma":"+5",
+        "suerte":"+5"
+      },
+      "derecha":{
+        "dialogo":"(no dices nada)",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
+      }
+    },
+    
+    "15":{
+      "personaje":"Ciudad",
+      "imagen":"characters/Ciudad.jpg",
+      "dialogo":". . .",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo":"Wuao... el futuro parece sacado de una imagen de google en el año 2020!!",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+5"
+      },
+      "derecha":{
+        "dialogo":"Wuao... ¿como cagarán en el futuro?",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+5",
+        "suerte":"+0"
+      }
+    },
+    
+    "16":{
+      "personaje":"Don Seymour",
+      "imagen":"characters/seymour.jpg",
+      "dialogo":"Sigueme, te llevare al banco y quizas compremos unos sandwich en el camino",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo":"Despues de todo no eres un mal amigo, seymoursito",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+2",
+        "suerte":"+0"
+      },
+      "derecha":{
+        "dialogo":"Aww aun eres tierno SEYMOUR!!!!!!!!!",
+        "salud":"+5",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
+      }
+    },
+    "17":{
+      "personaje":"Don Seymour",
+      "imagen":"characters/seymourhablandofumando.jpg",
+      "dialogo":"Callate que nadie te escuche o perdere mi reputación de mafioso",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo":"QQQQQQQQQQE!!!!!!!",
+        "salud":"-5",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
+      },
+      "derecha":{
+        "dialogo":"Ahh claro y yo soy blanca nieves solo que con barba, gordo y feo",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+5",
+        "suerte":"+0"
+      }
+    },
+    "18":{
+      "personaje":"Don Seymour",
+      "imagen":"characters/seymourhablandofumando.jpg",
+      "dialogo":"Andarán por ahí, venga hemos llegado al banco",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo":"Finalmente podre recuperar mis cosas",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
+      },
+      "derecha":{
+        "dialogo":"Me imagino como serán los bancos del futuro deben ser...",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
+      }
+    },
+    "19":{
+      "personaje":"Banco",
+      "imagen":"characters/banco.jpg",
+      "dialogo":"Che un pesito para el banco porfavor",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo":"TU TIENES QUE DARME DINERO MALNACIDO! NO YO",
+        "salud":"+0",
+        "dinero":"-10",
+        "carisma":"-10",
+        "suerte":"-10"
+      },
+      "derecha":{
+        "dialogo":"Ah seguro es una fachada jeje",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
+      }
+    },
+    "20":{
+      "personaje":"Don Seymour",
+      "imagen":"characters/seymourhablando.jpg",
+      "dialogo":"No, ese es tu banco la verdad es una mierda en estos tiempos",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo":"Ouch, bueno almenos tendran mis cosas",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+5",
+        "suerte":"+0"
+      },
+      "derecha":{
+        "dialogo":"*Miras al vagabundo con una ira asesina*",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"-10",
+        "suerte":"+0"
+      }
+    },
+    "21":{
+      "personaje":"Banco",
+      "imagen":"characters/banco.jpg",
+      "dialogo":"Eh mi loco si eres cliente pone el dedo y te llegaran tus cosas",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo":"Aber",
+        "salud":"+10",
+        "dinero":"+10",
+        "carisma":"+10",
+        "suerte":"+10"
+      },
+      "derecha":{
+        "dialogo":"grrr..(Y si mejor pongo otra cosa, vago asqueoso)",
+        "salud":"+20",
+        "dinero":"+15",
+        "carisma":"+15",
+        "suerte":"+15"
+      }
+    },
+    "22":{
+      "personaje":"Don Seymour",
+      "imagen":"characters/Scoobygalleta.jpg",
+      "dialogo":"Al fin tienes tus cosas, y veo que tienes una scooby galleta para mi ",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo":"NO, NO, NO, bueno si, PERO ES MIA",
+        "salud":"-30",
+        "dinero":"+0",
+        "carisma":"-5",
+        "suerte":"+10"
+      },
+      "derecha":{
+        "dialogo":"Si anda toma, como en los viejos tiempos socio",
+        "salud":"+0",
+        "dinero":"+15",
+        "carisma":"+15",
         "suerte":"0"
       }
     },
-    "2":{
-      "personaje":"Seymour",
-      "imagen":"characters/2.jpg",
-      "dialogo":"¿Efectivamente, ese es mi nombre?",
+    "23":{
+      "personaje":"Don Seymour",
+      "imagen":"characters/seymourhablando.jpg",
+      "dialogo":"Nos vamos, sigueme te guiaré a la casa del sandwich, van a estar de locos",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "*GRITAS!!!!!!*",
-        "salud":"+1",
-        "dinero":"0",
-        "carisma":"0",
-        "suerte":"+1"
+        "dialogo":"Ya quiero probar esos sandwiches",
+        "salud":"+50",
+        "dinero":"+50",
+        "carisma":"+50",
+        "suerte":"+50"
       },
       "derecha":{
-        "dialogo": "Meh... ahora los perros hablan ... AAAAAAAAAAAAAAAAAAA!!",
-        "salud":"+1",
-        "dinero":"+1",
-        "carisma":"+1",
-        "suerte":"+2"
+        "dialogo":"PORFIN TENGO HAMBRE Y GANAS DE MEAR",
+        "salud":"+50",
+        "dinero":"+50",
+        "carisma":"+50",
+        "suerte":"+50"
       }
     },
-    "3":{
-      "personaje":"Seymour",
-      "imagen":"characters/3.jpg",
-      "dialogo":"Tranquilízate estamos en el año 3020, solo que yo Sali un poco antes debido a otros motivos...",
+    "24":{
+      "personaje":"Casa del Sandwich",
+      "imagen":"characters/Casasandwich.jpg",
+      "dialogo":" . . . ",
       "aleatorio":"false",
       "izquierda":{
-        "dialogo": "¿Qué motivos?",
-        "salud":"+1",
-        "dinero":"+1",
-        "carisma":"-1",
-        "suerte":"-1"
+        "dialogo":"Se ve algo rara... PORQUE EL BAÑO ESTA ARRIBA DEL TECHO",
+        "salud":"+0",
+        "dinero":"+5",
+        "carisma":"+5",
+        "suerte":"+5"
       },
       "derecha":{
-        "dialogo": "Me da igual saquenme de esta capsula luego *ashus*",
-        "salud":"-1",
-        "dinero":"-1",
-        "carisma":"+1",
-        "suerte":"+1"
+        "dialogo":"Ah habia escuchado de esto en el 2020 los baños en los techos eran una novedad",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
       }
-    }
+    },
+    "25":{
+      "personaje":"Don Seymour",
+      "imagen":"characters/Seymourhablando.jpg",
+      "dialogo":"Entremos, esta es mi familia",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo":"Entras",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
+      },
+      "derecha":{
+        "dialogo":"Entras",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
+      }
+    },
+    "26":{
+      "personaje":"Black",
+      "imagen":"characters/Black.jpg",
+      "dialogo":". . .",
+      "aleatorio":"false",
+      "izquierda":{
+        "dialogo":"+0",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
+      },
+      "derecha":{
+        "dialogo":"+0",
+        "salud":"+0",
+        "dinero":"+0",
+        "carisma":"+0",
+        "suerte":"+0"
+      }
+    }     
   }
 }

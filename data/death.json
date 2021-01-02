@@ -1,6 +1,6 @@
 {
   "salud":{
-    "image":"assets/fondo.jpg",
+    "image":"characters/muertecorazon.jpg",
     "menor":{
       "1":"Salud menor 1. Elit veniam non ut officia et.",
       "2":"Salud menor 2. Nostrud sunt nisi id non velit laborum enim aute sunt do magna ullamco.",
@@ -17,7 +17,7 @@
     }
   },
   "dinero":{
-    "image":"assets/fondo.jpg",
+    "image":"characters/muerteyiansha.jpg",
     "menor":{
       "1":"Dinero menor 1. Enim tempor commodo cillum velit incididunt voluptate mollit eu sit.",
       "2":"Dinero menor 2. Nostrud occaecat adipisicing laboris excepteur qui esse ad ad minim.",
@@ -34,7 +34,7 @@
     }
   },
   "carisma":{
-    "image":"assets/fondo.jpg",
+    "image":"characters/muertecorazon.jpg",
     "menor":{
       "1":"Carisma menor 1. Irure est elit qui deserunt.",
       "2":"Carisma menor 2. Incididunt quis sunt ea aliqua dolor aliqua dolore sint id incididunt nostrud culpa.",
@@ -51,7 +51,7 @@
     }
   },
   "suerte":{
-    "image":"assets/fondo.jpg",
+    "image":"characters/Muertepiano.jpg",
     "menor":{
       "1":"Suerte menor 1. Elit laborum minim commodo eu ut cillum amet.",
       "2":"Suerte menor 2. Quis exercitation cillum nulla excepteur dolor ut duis sit tempor pariatur qui incididunt incididunt exercitation.",
@@ -68,7 +68,7 @@
     }
   },
   "random":{
-    "image":"assets/fondo.jpg",
+    "image":"characters/muerteyiansha.jpg",
     "1":"Random 1. Commodo amet sint quis eu esse esse aute qui aute pariatur esse et.",
     "2":"Random 2. Velit duis amet ea occaecat dolor minim nulla minim.",
     "3":"Random 3. Cupidatat ea ad amet pariatur exercitation.",
