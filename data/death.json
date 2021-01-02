@@ -1,78 +1,78 @@
 {
   "salud":{
-    "image":"assets/fondo.jpg",
+    "image":"characters/muertecorazon.jpg",
     "menor":{
-      "1":"Salud menor 1. Elit veniam non ut officia et.",
-      "2":"Salud menor 2. Nostrud sunt nisi id non velit laborum enim aute sunt do magna ullamco.",
-      "3":"Salud menor 3. Exercitation laborum ea anim nisi.",
-      "4":"Salud menor 4. Ex Lorem est ea elit esse.",
-      "5":"Salud menor 5. Eiusmod officia incididunt duis officia sunt eiusmod consequat dolore incididunt esse ea do."
+      "1":"Derrepente tienes muy poca salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "2":"Derrepente tienes muy poca salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "3":"Derrepente tienes muy poca salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "4":"Derrepente tienes muy poca salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "5":"Derrepente tienes muy poca salud y te duele la cucharita, suenan las campanitas F en el chat."
     },
     "mayor":{
-      "1":"Salud mayor 1. Sunt consequat ea consequat velit ex occaecat ea non.",
-      "2":"Salud mayor 2. Pariatur ipsum sint amet id occaecat eiusmod.",
-      "3":"Salud mayor 3. Sit dolor quis fugiat labore fugiat deserunt quis consequat Lorem do non laborum consequat ut.",
-      "4":"Salud mayor 4. Mollit commodo elit laboris adipisicing quis sunt nostrud nisi.",
-      "5":"Salud mayor 5. Minim eiusmod consequat nisi dolore ipsum pariatur ad qui nulla ad laborum officia."
+      "1":"Derrepente tienes mucha salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "2":"Derrepente tienes mucha salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "3":"Derrepente tienes mucha salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "4":"Derrepente tienes mucha salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "5":"Derrepente tienes mucha salud y te duele la cucharita, suenan las campanitas F en el chat."
     }
   },
   "dinero":{
-    "image":"assets/fondo.jpg",
+    "image":"characters/muerteyiansha.jpg",
     "menor":{
-      "1":"Dinero menor 1. Enim tempor commodo cillum velit incididunt voluptate mollit eu sit.",
-      "2":"Dinero menor 2. Nostrud occaecat adipisicing laboris excepteur qui esse ad ad minim.",
-      "3":"Dinero menor 3. Consectetur ad mollit anim fugiat non cupidatat Lorem non nulla dolore labore esse exercitation labore.",
-      "4":"Dinero menor 4. Deserunt voluptate culpa non velit consectetur dolore veniam aliqua.",
-      "5":"Dinero menor 5. Laborum Lorem enim tempor sunt Lorem enim id elit tempor adipisicing sunt veniam officia."
+      "1":"Debido a tu pobresa un Saibamen aparece y te mata, te duele el trasero por algun motivo.",
+      "2":"Debido a tu pobresa un Saibamen aparece y te mata, te duele el trasero por algun motivo.",
+      "3":"Debido a tu pobresa un Saibamen aparece y te mata, te duele el trasero por algun motivo.",
+      "4":"Debido a tu pobresa un Saibamen aparece y te mata, te duele el trasero por algun motivo.",
+      "5":"Debido a tu pobresa un Saibamen aparece y te mata, te duele el trasero por algun motivo."
     },
     "mayor":{
-      "1":"Dinero mayor 1. Velit nostrud mollit non voluptate deserunt.",
-      "2":"Dinero mayor 2. Commodo aliquip aliqua cupidatat laborum dolore reprehenderit reprehenderit in.",
-      "3":"Dinero mayor 3. Dolor exercitation nostrud eiusmod Lorem culpa do.",
-      "4":"Dinero mayor 4. Eu dolor consequat esse tempor consequat officia Lorem sit.",
-      "5":"Dinero mayor 5. Cillum labore nulla nisi est nulla in incididunt id proident."
+      "1":"Debido a que eres millonario un Saibamen aparece y te roba, te duele el trasero por algun motivo.",
+      "2":"Debido a que eres millonario un Saibamen aparece y te roba, te duele el trasero por algun motivo.",
+      "3":"Debido a que eres millonario un Saibamen aparece y te roba, te duele el trasero por algun motivo.",
+      "4":"Debido a que eres millonario un Saibamen aparece y te roba, te duele el trasero por algun motivo.",
+      "5":"Debido a que eres millonario un Saibamen aparece y te roba, te duele el trasero por algun motivo."
     }
   },
   "carisma":{
-    "image":"assets/fondo.jpg",
+    "image":"characters/muertecorazon.jpg",
     "menor":{
-      "1":"Carisma menor 1. Irure est elit qui deserunt.",
-      "2":"Carisma menor 2. Incididunt quis sunt ea aliqua dolor aliqua dolore sint id incididunt nostrud culpa.",
-      "3":"Carisma menor 3. Voluptate velit anim nisi aliquip officia sunt esse.",
-      "4":"Carisma menor 4. Ullamco cillum sunt sit proident dolor qui officia sunt mollit quis sit.",
-      "5":"Carisma menor 5. Quis cillum magna proident ullamco adipisicing sint."
+      "1":"Derrepente tienes muy poca salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "2":"Derrepente tienes muy poca salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "3":"Derrepente tienes muy poca salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "4":"Derrepente tienes muy poca salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "5":"Derrepente tienes muy poca salud y te duele la cucharita, suenan las campanitas F en el chat."
     },
     "mayor":{
-      "1":"Carisma mayor 1. Magna exercitation nostrud aute consectetur eiusmod duis reprehenderit sunt sint.",
-      "2":"Carisma mayor 2. Esse ea magna qui consectetur nostrud elit adipisicing.",
-      "3":"Carisma mayor 3. Esse cillum eu ullamco non mollit exercitation cillum.",
-      "4":"Carisma mayor 4. Cupidatat pariatur occaecat ad laboris exercitation irure laborum ex.",
-      "5":"Carisma mayor 5. Consequat do officia pariatur Lorem pariatur pariatur anim."
+      "1":"Derrepente tienes mucha salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "2":"Derrepente tienes mucha salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "3":"Derrepente tienes mucha salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "4":"Derrepente tienes mucha salud y te duele la cucharita, suenan las campanitas F en el chat.",
+      "5":"Derrepente tienes mucha salud y te duele la cucharita, suenan las campanitas F en el chat."
     }
   },
   "suerte":{
-    "image":"assets/fondo.jpg",
+    "image":"characters/Muertepiano.jpg",
     "menor":{
-      "1":"Suerte menor 1. Elit laborum minim commodo eu ut cillum amet.",
-      "2":"Suerte menor 2. Quis exercitation cillum nulla excepteur dolor ut duis sit tempor pariatur qui incididunt incididunt exercitation.",
-      "3":"Suerte menor 3. Reprehenderit id mollit ut ipsum.",
-      "4":"Suerte menor 4. Ut anim eiusmod magna ut nisi.",
-      "5":"Suerte menor 5. Ea pariatur do esse do."
+      "1":"En medio de todo, observas por encima de tu cabeza una sombra... te cayó un piano y moriste.",
+      "2":"En medio de todo, observas por encima de tu cabeza una sombra... te cayó un piano y moriste.",
+      "3":"En medio de todo, observas por encima de tu cabeza una sombra... te cayó un piano y moriste.",
+      "4":"En medio de todo, observas por encima de tu cabeza una sombra... te cayó un piano y moriste.",
+      "5":"En medio de todo, observas por encima de tu cabeza una sombra... te cayó un piano y moriste."
     },
     "mayor":{
-      "1":"Suerte mayor 1. Elit nisi in tempor elit do laborum excepteur mollit dolore.",
-      "2":"Suerte mayor 2. Consequat eu laboris velit eiusmod consequat minim id laboris ullamco mollit Lorem officia.",
-      "3":"Suerte mayor 3. Quis incididunt mollit adipisicing nulla sunt exercitation.",
-      "4":"Suerte mayor 4. Ex voluptate adipisicing enim occaecat elit tempor cillum.",
-      "5":"Suerte mayor 5. Incididunt reprehenderit consequat dolor eiusmod cillum qui fugiat est eu ea proident occaecat cillum."
+      "1":"En medio de todo, observas por encima de tu cabeza una sombra... te cayó un piano y moriste.",
+      "2":"En medio de todo, observas por encima de tu cabeza una sombra... te cayó un piano y moriste.",
+      "3":"En medio de todo, observas por encima de tu cabeza una sombra... te cayó un piano y moriste.",
+      "4":"En medio de todo, observas por encima de tu cabeza una sombra... te cayó un piano y moriste.",
+      "5":"En medio de todo, observas por encima de tu cabeza una sombra... te cayó un piano y moriste."
     }
   },
   "random":{
-    "image":"assets/fondo.jpg",
-    "1":"Random 1. Commodo amet sint quis eu esse esse aute qui aute pariatur esse et.",
-    "2":"Random 2. Velit duis amet ea occaecat dolor minim nulla minim.",
-    "3":"Random 3. Cupidatat ea ad amet pariatur exercitation.",
-    "4":"Random 4. Aute labore nisi minim elit.",
-    "5":"Random 5. Pariatur irure duis ut esse est fugiat velit eiusmod exercitation."
+    "image":"characters/muerteyiansha.jpg",
+    "1":"Un Saibamen iba siguiendo a seymour y explotó, haz muerto.",
+    "2":"Un Saibamen iba siguiendo a seymour y explotó, haz muerto.",
+    "3":"Un Saibamen iba siguiendo a seymour y explotó, haz muerto.",
+    "4":"Un Saibamen iba siguiendo a seymour y explotó, haz muerto.",
+    "5":"Un Saibamen iba siguiendo a seymour y explotó, haz muerto."
   }
 }
