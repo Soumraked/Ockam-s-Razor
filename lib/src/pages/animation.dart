@@ -16,10 +16,7 @@ class _AnimationInitState extends State<AnimationInit> {
   @override
   void initState() {
     _controller = VideoPlayerController.network(
-        "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
-    // _controller = VideoPlayerController.network(
-    //     "https://github.com/Soumraked/Ockam-s-Razor/blob/main/assets/Introreal.mp4");
-    // _controller = VideoPlayerController.asset("assets/introreal.mp4");
+        "https://github.com/Soumraked/Ockam-s-Razor/raw/main/assets/Introreal.mp4");
     _initializeVideoPlayerFuture = _controller.initialize();
     _controller.setLooping(false);
     _controller.setVolume(1.0);
@@ -38,6 +35,13 @@ class _AnimationInitState extends State<AnimationInit> {
     return Scaffold(
       body: SafeArea(
         child: Container(
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(12, 12, 12, 1),
+            image: DecorationImage(
+              image: AssetImage("assets/7dDt.gif"),
+              fit: BoxFit.fill,
+            ),
+          ),
           child: FutureBuilder(
             future: _initializeVideoPlayerFuture,
             builder: (context, snapshot) {
