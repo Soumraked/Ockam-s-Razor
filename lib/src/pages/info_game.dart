@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:liquid_swipe/Helpers/Helpers.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 
-import 'package:ockams_razor/src/pages/menu.dart';
-
 class InfoGame extends StatefulWidget {
   @override
   _InfoGameState createState() => _InfoGameState();
@@ -84,14 +82,13 @@ class _InfoGameState extends State<InfoGame> {
 
   Widget _image3() {
     return Container(
-        decoration: BoxDecoration(
-            color: Color.fromRGBO(12, 12, 12, 1),
-            image: DecorationImage(
-              image: AssetImage("assets/card_animation.gif"),
-              fit: BoxFit.fill,
-            ),
-          ),
-         
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(12, 12, 12, 1),
+        image: DecorationImage(
+          image: AssetImage("assets/card_animation.gif"),
+          fit: BoxFit.fill,
+        ),
+      ),
     );
   }
 }

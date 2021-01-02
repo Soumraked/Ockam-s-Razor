@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_tindercard/flutter_tindercard.dart';
-import 'package:ockams_razor/src/pages/menu.dart';
 
 import 'package:ockams_razor/src/utils/utils.dart';
 

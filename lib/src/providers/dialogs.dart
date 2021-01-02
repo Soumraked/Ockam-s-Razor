@@ -45,7 +45,7 @@ class CargaDialogos {
   Future<List<Dialogo>> cargarData(String section, String keySection) async {
     List<Dialogo> dialogos = new List();
 
-    final resp = await rootBundle.loadString('data/example.json');
+    final resp = await rootBundle.loadString('data/historiav1.json');
 
     Map dataMap = json.decode(resp);
 
