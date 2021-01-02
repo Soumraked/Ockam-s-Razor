@@ -9,8 +9,13 @@ class InitAnimations extends StatefulWidget {
 }
 
 class _InitAnimationsState extends State<InitAnimations> {
+  bool partida = false;
+
   @override
   void initState() {
+    getPrefsBool('partida').then((value) {
+      partida = value;
+    });
     super.initState();
     // setPrefsBool('initAnimation', false);
     getPrefsBool('initAnimation').then((value) {
@@ -64,7 +69,7 @@ class _InitAnimationsState extends State<InitAnimations> {
   }
 
   route() {
-    Navigator.pushNamed(context, 'menu');
+    Navigator.pushNamed(context, 'menu', arguments: partida);
   }
 
   startTimeAnimation() async {
