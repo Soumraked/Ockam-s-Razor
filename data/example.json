@@ -82,7 +82,7 @@
     },
     "5":{
       "personaje":"Principal",
-      "imagen":"characters/Black.jpg",
+      "imagen":"characters/pensando.jpg",
       "dialogo":" ¿Qué es esto?... Es como un videojuego ¿Por qué cada vez que hago algo me sube o baja la vida? ¿¡QUE ES ESA BARRA QUE TENGO ENCIMA!?",
       "aleatorio":"false",
       "izquierda":{
