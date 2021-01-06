@@ -511,6 +511,12 @@ class _GameState extends State<Game> {
   }
 
   Widget _backButton() {
+    setPrefsBool('partida', true);
+    setPrefsString('section', 'parte1;${_dialogo[0].key}');
+    setPrefsInt('_salud', _salud.toInt());
+    setPrefsInt('_carisma', _carisma.toInt());
+    setPrefsInt('_dinero', _dinero.toInt());
+    setPrefsInt('_suerte', _suerte.toInt());
     return FloatingActionButton(
       mini: true,
       child: Icon(Icons.arrow_back),

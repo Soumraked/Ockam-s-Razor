@@ -73,6 +73,7 @@ class _AnimationInitState extends State<AnimationInit> {
 
   //La pantalla cuenta con el botón omitir, que ejecutará la siguiente función y dará paso a las funcionalidades de la aplicación
   route() {
+    _controller.pause();
     setPrefsBool('initAnimation', true);
     Navigator.pushNamed(context, '/');
   }
