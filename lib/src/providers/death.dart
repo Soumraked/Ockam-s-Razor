@@ -3,6 +3,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 import 'dart:math';
 
+//Estructura utilizada para las muertes del personaje
 class Muerte {
   final String menorSalud;
   final String mayorSalud;
@@ -37,6 +38,7 @@ class Muerte {
   );
 }
 
+//Método encargado de leer el Json ya estructurar los datos
 class CargarMuerte {
   CargarMuerte() {
     cargarData();
@@ -46,7 +48,7 @@ class CargarMuerte {
     final resp = await rootBundle.loadString('data/death.json');
     Map dataMap = json.decode(resp);
     var random = new Random();
-
+    //Se selecciona una muerte random según cada estadística
     Muerte muerte = new Muerte(
       dataMap['salud']['menor'][(random.nextInt(5) + 1).toString()],
       dataMap['salud']['mayor'][(random.nextInt(5) + 1).toString()],
@@ -68,4 +70,5 @@ class CargarMuerte {
   }
 }
 
+//Variable que almacena las muertes, la cual puede ser obtenida desde otro archivo (pública)
 final cargaMuertes = new CargarMuerte();

@@ -6,6 +6,7 @@ import 'dart:math';
 
 import 'package:ockams_razor/src/utils/utils.dart';
 
+//Clase encargada de mostrar la muerte del personaje dependiendo de las estadisticas bajo 0 o sobre 100
 class DeathPage extends StatefulWidget {
   @override
   _DeathPageState createState() => _DeathPageState();
@@ -28,6 +29,7 @@ class _DeathPageState extends State<DeathPage> {
     super.initState();
   }
 
+//Cambios de colores automaticos para los botones
   void _changeColor() {
     List<dynamic> colores = [
       Colors.red,
@@ -69,6 +71,7 @@ class _DeathPageState extends State<DeathPage> {
     );
   }
 
+//Cuadro de texto en donde se informa el por qué de la muerte del personaje
   Widget _textDeath(String _message) {
     return Container(
       // color: Colors.blue,
@@ -89,6 +92,7 @@ class _DeathPageState extends State<DeathPage> {
     );
   }
 
+//Carta personalizada de la muerte del personaje
   Widget _cardDeath(String _message) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.4,
@@ -111,6 +115,7 @@ class _DeathPageState extends State<DeathPage> {
     );
   }
 
+//Botón para volver al menú
   Widget _buttonBack() {
     return Container(
       decoration: BoxDecoration(
@@ -140,6 +145,7 @@ class _DeathPageState extends State<DeathPage> {
     );
   }
 
+//Selección de muerte según las estadisticas bajo o sobre el límite
   String _messageMuerte(String message) {
     switch (message) {
       case 'menorSalud':
@@ -165,6 +171,7 @@ class _DeathPageState extends State<DeathPage> {
     }
   }
 
+//Imagen personalizada de la muerte del personaje
   String _imageMuerte(String message) {
     switch (message) {
       case 'menorSalud':
@@ -190,6 +197,7 @@ class _DeathPageState extends State<DeathPage> {
     }
   }
 
+//Limpieza de los campos en memoria, dado que no podrá continuar la partida por haber perdido, además de la redirección al menú
   void _redirectToMenu() {
     setPrefsBool('partida', false);
     setPrefsString('section', 'parte1;1');

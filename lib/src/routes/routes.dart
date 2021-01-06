@@ -9,6 +9,8 @@ import 'package:ockams_razor/src/pages/error.dart';
 import 'package:ockams_razor/src/pages/death.dart';
 import 'package:ockams_razor/src/pages/winGame.dart';
 
+//Definición de las rutas de la aplicación mediante un nombre (el cual será utilizado para la navegación)
+
 Map<String, WidgetBuilder> getAplicationRoutes() {
   return <String, WidgetBuilder>{
     '/': (BuildContext context) => InitAnimations(),

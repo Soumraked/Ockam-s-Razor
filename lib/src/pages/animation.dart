@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ockams_razor/src/utils/utils.dart';
 import 'package:video_player/video_player.dart';
 
+//Clase encargada de mostrar el trailer de la aplicación
 class AnimationInit extends StatefulWidget {
   @override
   _AnimationInitState createState() => _AnimationInitState();
@@ -70,6 +71,7 @@ class _AnimationInitState extends State<AnimationInit> {
     );
   }
 
+  //La pantalla cuenta con el botón omitir, que ejecutará la siguiente función y dará paso a las funcionalidades de la aplicación
   route() {
     setPrefsBool('initAnimation', true);
     Navigator.pushNamed(context, '/');

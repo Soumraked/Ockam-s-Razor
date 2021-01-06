@@ -19,28 +19,35 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    SystemChrome.setEnabledSystemUIOverlays(
+        []); //Activar modo pantalla completa
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp
+    ]); //Limitar el funcionamiento de la app a pantalla vertical
     return MaterialApp(
       title: "Ockam's Razor",
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [
-        // ... app-specific localization delegate[s] here
+        //Función utilizada para usar archivos de otras carpetas
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: [
+        //Definición de lengiajes de la aplicación
         const Locale('en', 'US'),
         const Locale('es', 'ES'),
       ],
       initialRoute: 'animation',
-      routes: getAplicationRoutes(),
+      routes:
+          getAplicationRoutes(), //Creación de rutas de la aplicación, ver más en src/routes
       onGenerateRoute: (RouteSettings settings) {
+        //Capturación de ingresos a rutas no definidas
         print('Ruta a la que intentó acceder: ${settings.name}');
         return MaterialPageRoute(
             builder: (BuildContext context) => ErrorPage());
       },
+      //Cambio de fuente de texto por defecto de la aplicación
       theme: ThemeData(fontFamily: 'Goldman'),
     );
   }
