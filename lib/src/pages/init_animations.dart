@@ -3,6 +3,8 @@ import 'dart:async';
 
 import 'package:ockams_razor/src/utils/utils.dart';
 
+//Clase encargada de animar la transición antes de entrar al menú
+//Lectura de estado "partida", verificando si existe una partida en curso o no para dar la opción de continuarla
 class InitAnimations extends StatefulWidget {
   @override
   _InitAnimationsState createState() => _InitAnimationsState();

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:liquid_swipe/Helpers/Helpers.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 
+//Clase encargada de mostrar cómo jugar a gente nueva que entre a la aplicación
 class InfoGame extends StatefulWidget {
   @override
   _InfoGameState createState() => _InfoGameState();
@@ -40,6 +41,7 @@ class _InfoGameState extends State<InfoGame> {
     return _aux;
   }
 
+//Widget base del tema, solo se modificó el texto e imagenes
   Widget _image1() {
     return Container(
       decoration: BoxDecoration(
@@ -80,6 +82,7 @@ class _InfoGameState extends State<InfoGame> {
     );
   }
 
+//Widget base del tema, solo se modificó el texto e imagenes
   Widget _image3() {
     return Container(
       decoration: BoxDecoration(

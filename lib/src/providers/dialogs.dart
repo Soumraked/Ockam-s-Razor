@@ -2,6 +2,7 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import 'dart:convert';
 
+//Clase orientada a guardar la información del Json relacionado a los dialogos de la apliación
 class Dialogo {
   final String key;
   final String personaje;
@@ -37,6 +38,7 @@ class Dialogo {
       this.derechaSuerte);
 }
 
+//Método encargado de leer el archivo Json y estructurarlos
 class CargaDialogos {
   CargaDialogos(String section, String keySection) {
     cargarData(section, keySection);
@@ -75,7 +77,7 @@ class CargaDialogos {
   }
 }
 
-// final cargaDialogos = new _CargaDialogos();
+//Variables utilizadas para simular la carga o imagen base de la transición de los dialogos
 final dialogoCarga = new Dialogo(
     "99", '1', 'assets/poof.gif', '', true, '', 0, 0, 0, 0, "", 0, 0, 0, 0);
 final dialogoFondo = new Dialogo(

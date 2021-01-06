@@ -5,6 +5,7 @@ import 'dart:math';
 
 import 'package:ockams_razor/src/utils/utils.dart';
 
+//Clase encargada de mostrar la victoria del personaje
 class WinPage extends StatefulWidget {
   @override
   _WinPageState createState() => _WinPageState();
@@ -60,6 +61,7 @@ class _WinPageState extends State<WinPage> {
     );
   }
 
+//Cuadro de texto en donde se informa la victoria del personaje y la próxima continuación de la historia
   Widget _textWin() {
     return Container(
       // color: Colors.blue,
@@ -80,6 +82,7 @@ class _WinPageState extends State<WinPage> {
     );
   }
 
+//Carta personalizada de la victoria del personaje
   Widget _cardWin() {
     return Container(
       height: MediaQuery.of(context).size.height * 0.4,
@@ -102,6 +105,7 @@ class _WinPageState extends State<WinPage> {
     );
   }
 
+//Botón para volver al menú
   Widget _buttonBack() {
     return Container(
       decoration: BoxDecoration(
@@ -139,6 +143,7 @@ class _WinPageState extends State<WinPage> {
     );
   }
 
+//Limpieza de los campos en memoria y retorno al menú
   void _redirectToMenu() {
     setPrefsBool('partida', false);
     setPrefsString('section', 'parte1;1');

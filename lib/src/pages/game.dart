@@ -11,6 +11,10 @@ import 'package:ockams_razor/src/providers/dialogs.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'dart:math';
 
+//Clase encargada de mostrar el juego en sí, se presentan los dialogos y las respuestas,
+// se debe mover a la derecha o izquierda la tarjeta para seleccionar una opción, si las estadísticas
+// bajan de 0 o suben de 100 se redigirá a la pantalla correspondiente, al ganr el juego, se
+// realizará lo mismo pero con la pantalla de victoria
 class Game extends StatefulWidget {
   @override
   _GameState createState() => _GameState();
@@ -44,6 +48,8 @@ class _GameState extends State<Game> {
   int _limit = 100000;
   String _message = 'Desliza para ver las opciones.';
 
+  //Lectura de la memoria del dispositivo, se identifica el dialogó donde quedó la partida y se
+  // comienzan a escribir en pantallas solo dialgos posteriores
   @override
   void initState() {
     getPrefsString('section').then((v) {
@@ -61,6 +67,7 @@ class _GameState extends State<Game> {
         });
       });
     });
+    // Se obtiene el valor de las estadisticas guardadas en memoria
     getPrefsInt('_salud').then((value) {
       _salud = value == 0 ? 50.0 : value.toDouble();
     });
@@ -73,11 +80,12 @@ class _GameState extends State<Game> {
     getPrefsInt('_suerte').then((value) {
       _suerte = value == 0 ? 50.0 : value.toDouble();
     });
-
+    //Se define un número aleatorio de muerte (mata al personaje aleatoriamente con la probabilidad de 1 en 100000)
     _randomDeath = random.nextInt(_limit);
     super.initState();
   }
 
+  //Se guarda en memoria las estadisticas y el avance de la historia, este método se ejecuta automaticamente al dejar la pantalla
   @override
   void dispose() {
     setPrefsBool('partida', true);
@@ -117,6 +125,15 @@ class _GameState extends State<Game> {
     );
   }
 
+//Widget encargado dl manejo de las cartas de dialgos, estas se montan en el widget TinderSwapCard y
+// se configuran sus caracteristicas internas como:
+//    - swipeUpdateCallback: método que indica si se tiene seleccionada la tarjeta y en que dirección, esto
+//       utiliza para pintar las posibles respuestas de ambos lados en la pantalla, además, de colorear las
+//       estadísticas que se verán afectadas con las desiciones
+//    - swipeCompleteCallback: método que se ejcuta la mover la carta ala izquierda o derecha, en este
+//      se actualizan las estadísticas y se piden los siguientes dialogos, si alguna estadisticas esta fuera
+//      de los límites fijados se realiza la redirección a la muerte del personaje, si se llega al final de la
+//      historia se procede a redirigir a la pantalla de victoria
   Widget _tinderSwipe() {
     return Container(
       height: MediaQuery.of(context).size.height * 0.4,
@@ -297,6 +314,7 @@ class _GameState extends State<Game> {
     return new Timer(duration, transition);
   }
 
+//Solicitud de los siguientes dialogos
   transition() {
     if (_dialogos.isEmpty) {
       rellenarDialogos();
@@ -308,6 +326,7 @@ class _GameState extends State<Game> {
     setState(() {});
   }
 
+//Solicitud de la siguiente parte de la historia o la victoria si corresponde
   rellenarDialogos() {
     _parte = _partes[_partes.indexOf(_parte) + 1];
     if (_parte == 'win') {
@@ -338,6 +357,7 @@ class _GameState extends State<Game> {
     setState(() {});
   }
 
+//Respuesta de la izquierda o derecha segpun la direccion en que se mueva la carta
   Widget _answer() {
     return Container(
       // color: Colors.blue,
@@ -358,6 +378,7 @@ class _GameState extends State<Game> {
     );
   }
 
+//Texto del dialogo
   Widget _question() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
@@ -365,6 +386,7 @@ class _GameState extends State<Game> {
     );
   }
 
+//Barra de estados
   Widget _status() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10),
@@ -376,6 +398,7 @@ class _GameState extends State<Game> {
     );
   }
 
+//Barra de estados, simbolo más numero
   Widget _grid() {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.1,
@@ -498,6 +521,7 @@ class _GameState extends State<Game> {
     );
   }
 
+//Redimensión del dialogo de la pantalla a través de la libreria AutoSizeText
   Widget _animation() {
     return Container(
       // color: Colors.blue,
@@ -518,6 +542,7 @@ class _GameState extends State<Game> {
     );
   }
 
+//Redirección en caso de muerte del personaje
   void _redirectDeath(String message) {
     _salud = 50;
     _carisma = 50;

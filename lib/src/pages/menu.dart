@@ -7,6 +7,7 @@ import 'dart:math';
 
 import 'package:ockams_razor/src/utils/utils.dart';
 
+//Clase encargada de mostrar el menú de la aplicación
 class MenuPage extends StatefulWidget {
   @override
   _MenuPageState createState() => _MenuPageState();
@@ -131,7 +132,12 @@ class _MenuPageState extends State<MenuPage> {
     );
   }
 
+//Botón que permite continuar una partida ya comenzada
   Widget _continuarPartida() {
+    //ModalRoute.of(context).settings.arguments permite obtener los parametros de la ruta anterior, para
+    //este caso, siempre será del archivo init_animation, donde se leerá la memoria del dispositivo
+    //para rescatar esta información y aquí solo leera, impidiendo que la pantalla sufra de bugs visuales
+    //como mostrar y ocultar el boton cuando no corresponda
     if (ModalRoute.of(context).settings.arguments) {
       return AnimatedContainer(
         duration: _animationDuration,
@@ -158,6 +164,7 @@ class _MenuPageState extends State<MenuPage> {
     }
   }
 
+//Comenzar un nuevo juego, reemplazando las estadísticas en memoria si existiesen
   void _newGame() {
     setPrefsBool('partida', true);
     setPrefsString('section', 'parte1;1');
@@ -168,10 +175,12 @@ class _MenuPageState extends State<MenuPage> {
     Navigator.pushNamed(context, 'game');
   }
 
+//Continuar un juego ya existente
   void _continueGame() {
     Navigator.pushNamed(context, 'game');
   }
 
+//Ver información del juego
   void _infoGame() {
     Navigator.pushNamed(context, 'info');
   }
